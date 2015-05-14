@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    render :json => Post.find(params[:id])
+    post = Post.find(params[:id])
+    post.content = Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(post.content)
+    render :json => post
   end
 end

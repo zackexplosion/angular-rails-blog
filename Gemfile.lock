@@ -114,6 +114,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.2.3)
     sass (3.4.13)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -158,6 +159,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails-assets-angular-ui-codemirror!
   rails-assets-ui-router!
+  redcarpet
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

@@ -18,6 +18,7 @@
 
 angular
 .module('blog', [
+    'ngSanitize',
     'ui.router',
     'ngResource'
 ])

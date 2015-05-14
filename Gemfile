@@ -44,6 +44,9 @@ end
 # 很棒棒的編輯器，超威，酷!
 gem 'codemirror-rails'
 
+# https://github.com/vmg/redcarpet markdown parser
+gem 'redcarpet'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-ui-codemirror'
