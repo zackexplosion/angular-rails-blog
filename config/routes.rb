@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   #   resources :products
   resources :posts
 
+  get 'template' => 'page#template'
+
   # Example resource route with options:
   #   resources :products do
   #     member do
