@@ -13,17 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require ui-router
+//= require codemirror
+//= require codemirror/modes/markdown
+//= require angular-ui-codemirror
+
 //= require_self
 //= require_tree .
 
 angular
 .module('blog', [
+    'ui.codemirror',
     'ui.router',
     'ngResource'
 ])
+.constant('Path', {
+    'template': '/templates?t=backend'
+})
 .config(
-[       '$stateProvider', '$urlRouterProvider',
-function($stateProvider,   $urlRouterProvider) {
+[       '$stateProvider', '$urlRouterProvider', 'Path',
+function($stateProvider,   $urlRouterProvider,   Path) {
 //
 // For any unmatched url, redirect to /state1
 $urlRouterProvider.otherwise("/posts/list");
@@ -37,14 +45,18 @@ $stateProvider
 })
 .state('posts.list', {
     url: "/list",
-    templateUrl: "/templates?t=posts/list.html",
+    templateUrl: Path.template + "/posts/list.html",
     controller: 'PostListCrtl'
 })
 .state('posts.show', {
     url: "/show/:id",
-    templateUrl: "/templates?t=posts/show.html",
+    templateUrl: Path.template + "/posts/show.html",
     controller: 'PostShowCrtl'    
 })
-
+.state('posts.edit', {
+    url: "/edit/:id",
+    templateUrl: Path.template + "/posts/edit.html",
+    controller: 'PostEditCrtl'    
+})
 
 }])

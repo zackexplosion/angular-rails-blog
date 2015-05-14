@@ -41,6 +41,10 @@ group :development, :test do
   gem 'spring'
 end
 
+# 很棒棒的編輯器，超威，酷!
+gem 'codemirror-rails'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-ui-router'
+  gem 'rails-assets-angular-ui-codemirror'
 end

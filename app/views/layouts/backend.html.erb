@@ -7,14 +7,14 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.js"></script>
   
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'backend/application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'backend/application', media: 'all' %>
+  <%= javascript_include_tag 'backend/application' %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <div class="container">
+  <h1>安安，我是後台喔</h1>
   <div ui-view></div>
 
 </div>

@@ -49,5 +49,4 @@ $stateProvider
     controller: 'PostShowCrtl'    
 })
 
-
 }])
