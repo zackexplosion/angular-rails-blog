@@ -13,7 +13,27 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ui-router
 //= require_tree .
 
 angular
-.module('blog', [])
+.module('blog', [
+    'ui.router',
+    'ngResource'
+])
+.config(
+[       '$stateProvider', '$urlRouterProvider',
+function($stateProvider,   $urlRouterProvider) {
+//
+// For any unmatched url, redirect to /state1
+$urlRouterProvider.otherwise("/posts");
+//
+// Now set up the states
+$stateProvider
+.state('posts', {
+    url: "/posts",
+    template: "<h1>hello</h1>"
+    // templateUrl: "partials/state1.html"
+})
+
+}])

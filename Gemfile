@@ -43,3 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-ui-router'
+end
