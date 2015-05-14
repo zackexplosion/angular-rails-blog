@@ -27,15 +27,14 @@ angular
 function($stateProvider,   $urlRouterProvider) {
 //
 // For any unmatched url, redirect to /state1
-$urlRouterProvider.otherwise("/posts");
+// $urlRouterProvider.otherwise("/posts");
 //
 // Now set up the states
 $stateProvider
 .state('posts', {
     url: "/posts",
-    template: "<pre>{{posts  | json}}</pre>",
-    controller: 'PostListCrtl'
-    // templateUrl: "partials/state1.html"
+    templateUrl: "/templates?t=posts/list.html",
+    controller: 'PostListCrtl'    
 })
 
 }])
