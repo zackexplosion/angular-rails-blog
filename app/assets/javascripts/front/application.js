@@ -27,14 +27,24 @@ angular
 function($stateProvider,   $urlRouterProvider) {
 //
 // For any unmatched url, redirect to /state1
-// $urlRouterProvider.otherwise("/posts");
+$urlRouterProvider.otherwise("/posts/list");
 //
 // Now set up the states
 $stateProvider
 .state('posts', {
-    url: "/posts",
+    abstract : true,
+    url: '/posts',
+    template: '<ui-view></ui-view>'
+})
+.state('posts.list', {
+    url: "/list",
     templateUrl: "/templates?t=posts/list.html",
-    controller: 'PostListCrtl'    
+    controller: 'PostListCrtl'
+})
+.state('posts.show', {
+    url: "/show/:id",
+    templateUrl: "/templates?t=posts/show.html",
+    controller: 'PostShowCrtl'    
 })
 
 }])

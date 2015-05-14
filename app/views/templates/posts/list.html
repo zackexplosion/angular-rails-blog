@@ -3,7 +3,7 @@
     <th>標題</th>
     <th>內容</th>
   </tr>
-  <tr ng-repeat="post in posts">
+  <tr ng-repeat="post in posts" ui-sref="posts.show({id:post.id})">
     <td>{{post.title}}</td>
     <td>{{post.content}}</td>
   </tr>
