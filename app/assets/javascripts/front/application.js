@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ui-router
+//= require_self
 //= require_tree .
 
 angular
@@ -32,7 +33,8 @@ $urlRouterProvider.otherwise("/posts");
 $stateProvider
 .state('posts', {
     url: "/posts",
-    template: "<h1>hello</h1>"
+    template: "<pre>{{posts  | json}}</pre>",
+    controller: 'PostListCrtl'
     // templateUrl: "partials/state1.html"
 })
 
