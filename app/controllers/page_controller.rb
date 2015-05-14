@@ -1,6 +1,6 @@
 class PageController < ApplicationController
   def index
-    
+    render :template => 'layouts/application.html.erb', :layout => false    
   end
 
   def template

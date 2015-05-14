@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :posts
+  resources :posts, only: [:index, :show]
 
   get 'templates' => 'page#template'
 
@@ -57,4 +57,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+    namespace :backend do
+      get '/' => 'page#index'
+      # Directs /admin/products/* to Admin::ProductsController
+      # (app/controllers/admin/products_controller.rb)
+      resources :posts
+    end
 end
