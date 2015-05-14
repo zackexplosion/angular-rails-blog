@@ -61,6 +61,8 @@ Rails.application.routes.draw do
       get '/' => 'page#index'
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
-      resources :posts
+      resources :posts, defaults: {format: :json} do
+        post '/', :action => 'update'
+      end
     end
 end

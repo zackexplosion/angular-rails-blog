@@ -10,4 +10,8 @@ function( $scope,    POSTS){
         lineNumbers: true,
         mode: 'markdown'
     };
+
+    $scope.save = function () {
+        $scope.post.$save();        
+    }
 }])

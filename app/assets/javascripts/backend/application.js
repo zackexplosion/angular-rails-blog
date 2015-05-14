@@ -29,6 +29,9 @@ angular
 .constant('Path', {
     'template': '/templates?t=backend'
 })
+.config(['$httpProvider', function($httpProvider){
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+}])
 .config(
 [       '$stateProvider', '$urlRouterProvider', 'Path',
 function($stateProvider,   $urlRouterProvider,   Path) {
