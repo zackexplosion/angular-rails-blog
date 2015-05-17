@@ -5,7 +5,7 @@ class Backend::PostsController < ApplicationController
 
 
   def index
-    render :json => Post.all
+    @posts = Post.all
   end
 
   def show
