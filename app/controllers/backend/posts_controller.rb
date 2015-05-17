@@ -1,4 +1,9 @@
 class Backend::PostsController < ApplicationController
+  def create
+    render :json => Post.create!(post_params)
+  end
+
+
   def index
     render :json => Post.all
   end

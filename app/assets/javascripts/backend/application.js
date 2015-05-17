@@ -56,6 +56,10 @@ $stateProvider
     templateUrl: Path.template + "/posts/show.html",
     controller: 'PostShowCrtl'    
 })
+.state('posts.new', {
+    url: "/new",
+    controller: 'PostNewCrtl'
+})
 .state('posts.edit', {
     url: "/edit/:id",
     templateUrl: Path.template + "/posts/edit.html",
