@@ -8,8 +8,13 @@ function( $scope,    POSTS){
 
 
     $scope.delete = function (post) {
-        post.$remove().then(function(res){
+        var mes = '確定要刪除 ' + post.title + ' 嗎?';
+        
+        if(!confirm(mes)) return;
 
+        post.$remove().then(function(res){
+            var index = $scope.posts.indexOf(post);
+            $scope.posts.splice(index, 1);
         });
     }
 }])
