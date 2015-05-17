@@ -59,6 +59,13 @@ $stateProvider
 .state('posts.edit', {
     url: "/edit/:id",
     templateUrl: Path.template + "/posts/edit.html",
+    resolve   : {
+        POST : ['POSTS', '$stateParams', function(POSTS, $stateParams){
+            var id = $stateParams.id;
+            // debugger;
+            return POSTS.get({postId:id});
+        }]
+    },
     controller: 'PostEditCrtl'    
 })
 

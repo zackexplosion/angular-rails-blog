@@ -1,9 +1,9 @@
 angular
 .module('blog')
 .controller('PostEditCrtl', 
-[         '$scope', 'POSTS', 
-function( $scope,    POSTS){
-   $scope.post = POSTS.get({postId:1});
+[         '$scope', 'POST', 
+function( $scope,    POST){
+   $scope.post = POST;
 
     $scope.editorOptions = {
         lineWrapping : true,
