@@ -47,6 +47,12 @@ $stateProvider
 .state('posts.show', {
     url: "/show/:id",
     templateUrl: Path.template + "/posts/show.html",
+    resolve   : {
+        POST : ['POSTS', '$stateParams', function(POSTS, $stateParams){
+            var id = $stateParams.id;
+            return POSTS.get({postId:id});
+        }]
+    },
     controller: 'PostShowCrtl'    
 })
 
