@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  # root 'posts#index'
   root 'page#index'
 
   # Example of regular route:
@@ -17,7 +18,9 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
 
   get 'templates' => 'page#template'
-
+  # Route all valid requests to AngularJS
+  # root to: 'application#home'
+  # get "*path" => "page#index"
   # Example resource route with options:
   #   resources :products do
   #     member do

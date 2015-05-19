@@ -26,8 +26,15 @@ angular
     'template': '/templates?t=front'
 })
 .config(
+[        '$locationProvider',
+function( $locationProvider){
+    // $locationProvider.html5Mode(true).hashPrefix('!');
+    $locationProvider.html5Mode(true);
+}])
+.config(
 [       '$stateProvider', '$urlRouterProvider', 'Path',
 function($stateProvider,   $urlRouterProvider,   Path) {
+
 //
 // For any unmatched url, redirect to /state1
 $urlRouterProvider.otherwise("/posts/list");
