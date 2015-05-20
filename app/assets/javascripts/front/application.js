@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+// require jquery
+// require jquery_ujs
 //= require ui-router
 //= require_self
 //= require_tree .
@@ -26,17 +26,22 @@ angular
     'template': '/templates?t=front'
 })
 .config(
+[       '$locationProvider', '$urlRouterProvider', 'Path',
+function($locationProvider,   $urlRouterProvider,   Path) {
+    $locationProvider.html5Mode(true);
+}])
+.config(
 [       '$stateProvider', '$urlRouterProvider', 'Path',
 function($stateProvider,   $urlRouterProvider,   Path) {
 //
 // For any unmatched url, redirect to /state1
-$urlRouterProvider.otherwise("/posts/list");
+$urlRouterProvider.otherwise("/p/list");
 //
 // Now set up the states
 $stateProvider
 .state('posts', {
     abstract : true,
-    url: '/posts',
+    url: '/p',
     template: '<ui-view></ui-view>'
 })
 .state('posts.list', {

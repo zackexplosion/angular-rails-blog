@@ -14,9 +14,12 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  # resources :p, only: [:index, :show], :controller => 'posts'
   resources :posts, only: [:index, :show]
 
   get 'templates' => 'page#template'
+
+  
 
   # Example resource route with options:
   #   resources :products do
@@ -65,4 +68,6 @@ Rails.application.routes.draw do
         post '/', :action => 'update'
       end
     end
+
+    get '*path' => 'page#index' 
 end
