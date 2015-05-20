@@ -1,6 +1,21 @@
 class PageController < ApplicationController
   def index
-    render :template => 'layouts/application.html.erb', :layout => false    
+    
+    # t = params[:path]
+    
+    # if t == nil
+    #   # render :template => "templates/#{t}", :layout => false
+    #   render :template => 'layouts/application.html.erb', :layout => false
+    # else
+    #   redirect_to t
+    # end
+    @og = Hash.new
+    if params[:path]
+      # og
+    end
+
+    render :template => 'layouts/application.html.erb', :layout => false
+    
   end
 
   def template

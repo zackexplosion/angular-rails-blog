@@ -25,10 +25,27 @@ angular
 .constant('Path', {
     'template': '/templates?t=front'
 })
+.factory('LoadingInterceptor', 
+[       '$rootScope', 
+function($rootScope){
+    $rootScope.loading = true;
+
+    return {
+        'request': function(config) {
+            $rootScope.loading = true;
+            return config;
+        },
+        'response': function(response) {
+            $rootScope.loading = false;
+            return response;
+        }
+    };
+}])
 .config(
-[       '$locationProvider', '$urlRouterProvider', 'Path',
-function($locationProvider,   $urlRouterProvider,   Path) {
+[       '$locationProvider', '$httpProvider',
+function($locationProvider,   $httpProvider) {    
     $locationProvider.html5Mode(true);
+    $httpProvider.interceptors.push('LoadingInterceptor');
 }])
 .config(
 [       '$stateProvider', '$urlRouterProvider', 'Path',
