@@ -5,11 +5,13 @@
   <meta content='width=device-width,initial-scale=1' name='viewport'>
   <base href="/"></base>
   <%= favicon_link_tag 'favicon.png'%>
-  <meta property="og:image" content="<%= @og[:image] %>"/>
+  
   <meta property="og:locale" content="zh_TW"/>
-  <meta property="og:title" content="<%= @og[:title] %> ZackExplosion "/>
-  <meta property="og:description" content="<%= @og[:description] %> "/>
-  <meta property="og:url" content=""/>
+
+  <% @og.each do |k,v| %>
+  <meta property="og:<%= k %>" content="<%= v %>"/>
+  <% end %>
+
   <meta property="og:site_name" content="ZackExplosion"/>
   <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/united/bootstrap.min.css" rel="stylesheet">
   

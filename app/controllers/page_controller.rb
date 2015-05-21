@@ -14,6 +14,7 @@ class PageController < ApplicationController
     og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
 
     @og = {
+      :url         => 'http://' + request.host,
       :title       => "Zack's Blog",
       :description => '什麼都寫的部落格!',
       :image       => 'http://' + request.host + og_img
@@ -24,6 +25,7 @@ class PageController < ApplicationController
       
       if p != 0
         @post             = Post.find(p)
+        @og[:url]         = @og[:url] + '/' + params[:path]
         @og[:title]       = @post.title + " | "
         @og[:description] = @post.content
       end
