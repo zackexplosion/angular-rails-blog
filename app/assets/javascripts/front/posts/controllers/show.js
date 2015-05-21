@@ -5,7 +5,7 @@ angular
 function( $rootScope,   HightlightCodes,   $scope,   POST){
     $scope.post = POST;
 
-    $rootScope.title = $scope.post + ' | ';
+    $rootScope.title = $scope.post.title + ' | ';
 
     HightlightCodes();
 
