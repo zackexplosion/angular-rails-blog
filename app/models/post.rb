@@ -2,17 +2,16 @@ class Post < ActiveRecord::Base
 
 
   def html_content
-    self.markdown
+    self.markdown self.content
   end
 
   def short_html_content
-    content = self.content[0..50]
-    self.markdown
+    self.markdown self.content[0..50]
   end
 
-  def markdown
+  def markdown content
     Redcarpet::Markdown
     .new(Redcarpet::Render::HTML, fenced_code_blocks: true)
-    .render(self.content)
+    .render(content)
   end
 end
