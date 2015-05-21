@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   # resources :p, only: [:index, :show], :controller => 'posts'
-  resources :posts, only: [:index, :show]
+  resources :posts, only: [:index, :show], :defaults => {format: :json}
 
   get 'templates' => 'page#template'
 

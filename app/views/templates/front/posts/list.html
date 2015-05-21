@@ -1,10 +1,8 @@
-<h1>文章列表</h1>
+<div ng-repeat="post in posts">
+  <h3 ui-sref="posts.show({id:post.id})">{{post.title}}</h3>  
 
-<table class="table table-bordered">
-  <tr>
-    <th>標題</th>
-  </tr>
-  <tr ng-repeat="post in posts" ui-sref="posts.show({id:post.id})">
-    <td>{{post.title}}</td>
-  </tr>
-</table>
+  <article ng-bind-html="post.content"></article>
+  
+  <button ui-sref="posts.show({id:post.id})" class="btn btn-primary">閱讀更多<span class="glyphicon glyphicon-chevron-right"></span></button>
+  <hr />
+</div>
