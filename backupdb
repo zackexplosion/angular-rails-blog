@@ -1,0 +1,1 @@
+heroku run sh ./heroku_backupdatabase | sed '1d'  >  db/seeds.rb
