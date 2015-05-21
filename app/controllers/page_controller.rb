@@ -9,9 +9,21 @@ class PageController < ApplicationController
     # else
     #   redirect_to t
     # end
-    @og = Hash.new
+    @og = {
+      :title       => "Zack's Blog",
+      :description => '什麼都寫的部落格!'
+    }
+
     if params[:path]
-      # og
+      p = params[:path].split('/').last.to_i
+      
+      if p != 0
+        @post = Post.find(p)
+        @og = {
+          :title => @post.title + " | ",
+          :description => @post.content
+        }
+      end
     end
 
     render :template => 'layouts/application.html.erb', :layout => false
