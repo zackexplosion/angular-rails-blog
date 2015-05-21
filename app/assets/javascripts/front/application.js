@@ -77,7 +77,7 @@ $stateProvider
     resolve   : {
         POST : ['POSTS', '$stateParams', function(POSTS, $stateParams){
             var id = $stateParams.id;
-            return POSTS.get({postId:id});
+            return POSTS.get({postId:id}).$promise;
         }]
     },
     controller: 'PostShowCrtl'    
