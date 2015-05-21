@@ -16,7 +16,7 @@ class PageController < ApplicationController
     @og = {
       :title       => "Zack's Blog",
       :description => '什麼都寫的部落格!',
-      :image       => og_img
+      :image       => '//' + request.host + og_img
     }
 
     if params[:path]
