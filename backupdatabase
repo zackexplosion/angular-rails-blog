@@ -1,2 +1,2 @@
-rake db:seed:dump
+rake db:seed:dump > /dev/null
 cat db/seeds.rb
