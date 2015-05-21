@@ -3,7 +3,9 @@ angular
 .controller('PostShowCrtl', 
 [        '$rootScope', '$timeout', '$scope', 'POST', 
 function( $rootScope,   $timeout,   $scope,   POST){
-    $scope.post = POST;   
+    $scope.post = POST;
+
+    $rootScope.title = POST.title + ' | ';
 
     var hightlight_codes = function(){
       var codes = document.querySelectorAll('pre code');      

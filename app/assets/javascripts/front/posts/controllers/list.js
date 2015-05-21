@@ -1,8 +1,9 @@
 angular
 .module('blog')
 .controller('PostListCrtl', 
-[         '$scope', 'POSTS', 
-function( $scope,    POSTS){
-   $scope.posts = []; 
+[        '$rootScope', '$scope', 'POSTS', 
+function( $rootScope,   $scope,   POSTS){
    $scope.posts = POSTS.query();
+   
+   $rootScope.title = '';
 }])

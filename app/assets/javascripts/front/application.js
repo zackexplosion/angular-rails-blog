@@ -22,6 +22,11 @@ angular
     'ui.router',
     'ngResource'
 ])
+.run(
+[        '$rootScope', 
+function( $rootScope){
+    $rootScope.title = '';
+}])
 .constant('Path', {
     'template': '/templates?t=front'
 })
