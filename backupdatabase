@@ -1,0 +1,2 @@
+rake db:seed:dump
+cat db/seeds.rb
