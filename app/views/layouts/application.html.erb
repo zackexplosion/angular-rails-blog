@@ -45,7 +45,9 @@
 <div id="loading" ng-show="loading" class="whirly-loader">Loading…</div>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-      <a class="navbar-brand" ui-sref="posts.list">Zack's Blog</a>
+      <a class="navbar-brand" ui-sref="posts.list">
+        <img src="<%= asset_path("favicon.png", type: :image) %>" />Zack's Blog
+      </a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     </div><!-- /.navbar-collapse -->
