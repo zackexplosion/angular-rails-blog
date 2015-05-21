@@ -1,5 +1,6 @@
 @import "../loading";
 @import "bootstrap/variables";
+@import "./*";
 
 body{
   padding-top : 50px;
@@ -21,5 +22,20 @@ pre{
     margin-right : 7.5px;
     max-height   : 100%;
     float        : left;
+  }
+}
+
+// pre,
+// code{
+//   word-break : normal !important;
+//   white-space: normal !important;
+// }
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+  code{
+    white-space: pre;
   }
 }

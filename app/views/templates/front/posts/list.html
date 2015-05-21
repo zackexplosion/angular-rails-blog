@@ -1,5 +1,5 @@
-<div ng-repeat="post in posts">
-  <h1 ui-sref="posts.show({id:post.id})">{{post.title}}</h1>
+<div id="post-list" ng-repeat="post in posts">
+  <a class="title" ui-sref="posts.show({id:post.id})"><h1>{{post.title}}</h1></a>
 
   <article ng-bind-html="post.content"></article>
   
