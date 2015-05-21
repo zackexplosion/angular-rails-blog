@@ -9,20 +9,23 @@ class PageController < ApplicationController
     # else
     #   redirect_to t
     # end
+    # og_img = image_path("favicon.png")
+
+    og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
+
     @og = {
       :title       => "Zack's Blog",
-      :description => '什麼都寫的部落格!'
+      :description => '什麼都寫的部落格!',
+      :image       => og_img
     }
 
     if params[:path]
       p = params[:path].split('/').last.to_i
       
       if p != 0
-        @post = Post.find(p)
-        @og = {
-          :title => @post.title + " | ",
-          :description => @post.content
-        }
+        @post             = Post.find(p)
+        @og[:title]       = @post.title + " | "
+        @og[:description] = @post.content
       end
     end
 
