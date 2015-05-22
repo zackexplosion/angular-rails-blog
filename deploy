@@ -1,1 +1,15 @@
+#!/bin/bash
+RAILS_ENV=production rake assets:precompile
+rm -rf ../zackexplosion/assets
+mv -vf public/assets/ ../zackexplosion/
+
+cd ../zackexplosion
+git add .
+git commit -m 'update assets'
+git push origin gh-pages
+
+cd ../blog
+#pwd
+#ls
+
 git push heroku master
