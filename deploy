@@ -4,7 +4,7 @@ rm -rf ../zackexplosion/assets
 mv -vf public/assets/ ../zackexplosion/
 mkdir public/assets
 cp -v ../zackexplosion/assets/mani*.json public/assets/
-git add.
+git add .
 git commit -m 'update manifest'
 
 cd ../zackexplosion
