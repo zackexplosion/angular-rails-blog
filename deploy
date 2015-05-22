@@ -2,6 +2,8 @@
 RAILS_ENV=production rake assets:precompile
 rm -rf ../zackexplosion/assets
 mv -vf public/assets/ ../zackexplosion/
+mkdir public/assets
+cp -v ../zackexplosion/assets/mani*.json public/assets/
 
 cd ../zackexplosion
 git add .
@@ -12,4 +14,4 @@ cd ../blog
 #pwd
 #ls
 
-git push heroku master
+#git push heroku master
