@@ -1,5 +1,17 @@
-@import "bootstrap.united";
 @import "../loading";
+
+
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/united/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+@import "bootswatch/united/bootswatch";
+
 @import "bootstrap/variables";
 @import "./*";
 
