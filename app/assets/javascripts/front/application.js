@@ -10,8 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// require jquery
-// require jquery_ujs
+
+//= require highlightjs
+//= require angular
+//= require angular-resource
+//= require angular-sanitize
 //= require ui-router
 //= require_self
 //= require_tree .

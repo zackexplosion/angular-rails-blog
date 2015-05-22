@@ -65,6 +65,11 @@ gem 'redcarpet'
 gem 'gist'
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-angularjs', '1.3.0'
+  gem 'rails-assets-angular-resource', '1.3.0'
+  gem 'rails-assets-angular-sanitize', '1.3.0'
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-ui-codemirror'
+
+  gem 'rails-assets-highlightjs','8.5'
 end
