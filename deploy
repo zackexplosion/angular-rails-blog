@@ -5,10 +5,10 @@ mv -vf public/assets/ ../zackexplosion/
 mkdir public/assets
 cp -v ../zackexplosion/assets/mani*.json public/assets/
 git add .
-git branch gh-pages
 git commit -m 'update manifest'
 
 cd ../zackexplosion
+git branch gh-pages
 git add .
 git commit -m 'update assets'
 git push origin gh-pages
