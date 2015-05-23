@@ -1,8 +1,12 @@
 #!/bin/bash
 RAILS_ENV=production rake assets:precompile
-rm -rf ../zackexplosion/assets
-mv -vf public/assets/ ../zackexplosion/
-mkdir public/assets
+# rm -rf ../zackexplosion/assets
+# mv -vf public/assets/ ../zackexplosion/
+# mkdir public/assets
+
+cp -av public/assets/ ../zackexplosion/
+
+rm -rf public/assets/
 cp -v ../zackexplosion/assets/mani*.json public/assets/
 git add .
 git commit -m 'update manifest'
