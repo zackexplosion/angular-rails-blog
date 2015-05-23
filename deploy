@@ -31,3 +31,4 @@ cd ../blog
 
 #git push heroku master
 git remote | xargs -L1 git push --all
+heroku run rake db:migrate

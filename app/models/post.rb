@@ -1,7 +1,9 @@
 class Post < ActiveRecord::Base
+  before_save :save_content_to_markdown
 
   def html_content
-    self.markdown self.content
+    self.render_content
+    # self.render_markdown self.content
   end
 
   def short_html_content
@@ -22,10 +24,17 @@ class Post < ActiveRecord::Base
 
     # asd
 
-    self.markdown content
+    self.render_markdown content
   end
 
-  def markdown content
+  protected
+
+  def save_content_to_markdown
+    rendered = self.render_markdown self.content
+    self.rendered_content = rendered
+  end
+
+  def render_markdown content
     extensions = {
       :fenced_code_blocks => true,
     }
