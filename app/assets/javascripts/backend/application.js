@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require ng-imgur.js
 //= require ui-router
 //= require codemirror
 //= require codemirror/modes/markdown
@@ -20,6 +21,7 @@
 
 angular
 .module('blog', [
+    'ngImgur',
     'ui.codemirror',
     'ui.router',
     'ngResource'

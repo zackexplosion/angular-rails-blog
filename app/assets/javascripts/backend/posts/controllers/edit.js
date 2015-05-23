@@ -1,8 +1,8 @@
 angular
 .module('blog')
 .controller('PostEditCrtl', 
-[         '$scope', 'POST', 
-function( $scope,    POST){
+[         '$scope', 'POST', 'imgur',
+function( $scope,    POST,   imgur){
    $scope.post = POST;
 
     $scope.editorOptions = {
