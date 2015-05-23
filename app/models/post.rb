@@ -26,8 +26,25 @@ class Post < ActiveRecord::Base
   end
 
   def markdown content
+    extensions = {
+      :fenced_code_blocks => true,
+    }
     Redcarpet::Markdown
-    .new(Redcarpet::Render::HTML, fenced_code_blocks: true)
+    .new(TargetBlankRenderer, extensions)
     .render(content)
+
+    # Redcarpet::Markdown
+    # .new(TargetBlankRenderer, fenced_code_blocks: true)
+    # .render(content)
+
+    
+  end
+end
+
+# https://github.com/vmg/redcarpet/issues/85
+
+class TargetBlankRenderer < Redcarpet::Render::HTML
+  def initialize(extensions = {})
+    super extensions.merge(link_attributes: { target: "_blank" })
   end
 end
