@@ -1,4 +1,4 @@
-#rake db:seed:dump MODELS=Post > /dev/null
+
 rake db:seed:dump > /dev/null
 
 cat db/seeds.rb
