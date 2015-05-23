@@ -12,12 +12,12 @@ class PageController < ApplicationController
     # og_img = image_path("favicon.png")
 
     og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
-
+    
     @og = {
-      :url         => 'http://' + request.host,
+      :url         => request.protocol + request.host,
       :title       => "Zack's Blog",
       :description => '什麼都寫的部落格!',
-      :image       => og_img
+      :image       => request.protocol + og_img
     }
 
     if params[:path]
