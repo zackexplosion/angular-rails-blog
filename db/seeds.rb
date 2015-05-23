@@ -1,6 +1,3 @@
-User.create!([
-  {id: 1, email: "cstony0917@gmail.com", encrypted_password: "$2a$10$4mudcMvSiXVcPpZBHnmUqeHhqlBusLI2pGtS6Kso7nMq6lR1AveC.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: "2015-05-23 18:51:50", sign_in_count: 1, current_sign_in_at: "2015-05-23 18:51:50", last_sign_in_at: "2015-05-23 18:51:50", current_sign_in_ip: "1.160.39.35", last_sign_in_ip: "1.160.39.35", created_at: "2015-05-23 18:39:06", updated_at: "2015-05-23 18:51:50"}
-])
 Post.create!([
   {id: 2, title: "節省開發時間，預防關節炎 guard live reload", content: "在做web開發的朋友們一定會碰到一個問題，那就是每次的修改一定要透過\n\n### 安裝GEM\n\n只給開發與測試環境\n\n``` ruby\ngroup :development, :test do\n  gem \"rack-livereload\"\n  gem 'guard-livereload', '~> 2.4', require: false\nend\n```\n\n接著，安裝GEM，如果有用POWDER的話記得將他restart\n\n```\nbundle install && powder restart\n```", created_at: "2015-05-17 15:32:51", updated_at: "2015-05-23 16:43:12"},
   {id: 5, title: "RAILS 將資料庫儲存到db seed裡面", content: "參考資料\n<https://github.com/rroblak/seed_dump>\n\n在Gemfile中加入\n\n\tgem 'seed_dump'\n\n或者是直接在終端機輸入\n\n    $ gem install seed_dump\n\n接著就可以使用\n\n    $ rake db:seed:dump\n    \n如果有用heroku的話會發現檔案系統沒辦法直接被存取\n    \n", created_at: "2015-05-17 15:32:51", updated_at: "2015-05-23 16:43:12"},
