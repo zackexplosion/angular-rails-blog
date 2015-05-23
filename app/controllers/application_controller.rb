@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
     uri = URI('https://api.twitch.tv/kraken/streams/cstony0917')
     res = Net::HTTP.get(uri) # => String
     res = JSON.parse(res)
-
-    render :json => res['stream'] != 'null'
+    
+    m = res['stream'] != nil
+    render :json => m
   end
 
 end
