@@ -1,4 +1,4 @@
-$font-family-base: 'LiHei Pro','微軟正黑體', "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif, 'LiHei Pro','微軟正黑體' !default;
 // $font-family-serif: 'LiHei Pro','微軟正黑體';
 // $font-family-sans-serif: 'LiHei Pro','微軟正黑體';
 
@@ -42,9 +42,26 @@ pre{
 #livehouse{
   .buttons{
     float: right;  
+    .btn{
+      padding: 2px 6px;
+    }
   }
+
+  &.living{
+    .buttons{
+      position: relative;
+      top: 11px;
+      right: -1px;
+    }
+  }
+
+
   .video-wrapper{
     padding-bottom: 44%;
+  }
+
+  hr{
+    margin-top : 5px;
   }
 }
 

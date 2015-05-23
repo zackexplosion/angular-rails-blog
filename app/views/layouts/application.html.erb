@@ -34,13 +34,13 @@
 </nav>
 
 <div class="container">
-  <div id="livehouse">
+  <div id="livehouse" ng-class="{living : is_living()}">
     <div class="buttons" ng-click="changeLiveStatus()">
-      <button ng-show="live" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
-      <button ng-hide="live" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+      <button ng-show="is_living()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+      <button ng-hide="is_living()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
     </div>
-    <h2>現場直播</h2>
-    <div ng-show="live" class="video-wrapper"></div>
+    <h3 ng-click="changeLiveStatus()">現場直播</h3>
+    <div ng-show="is_living()" class="video-wrapper"></div>
     <hr />
   </div>
 
