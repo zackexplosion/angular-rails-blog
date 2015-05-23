@@ -34,34 +34,33 @@ function( $rootScope,   $http){
         height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
     };
 
-    if( $rootScope.window.width >= 768){
+    // if( $rootScope.window.width >= 768){
 
-        $rootScope.live = false;
+    $rootScope.live = false;
 
-        var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
-        var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
+    var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
+    var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
 
-        $http.get('/is_living').success(function(res){            
-            // wrapper.html(iframe);
-            $rootScope.changeLiveStatus(res);
+    $http.get('/is_living').success(function(res){
+        // wrapper.html(iframe);
+        $rootScope.changeLiveStatus(res);
+    });
 
-        });
-       
-        
-        $rootScope.changeLiveStatus = function(live){
-            if(typeof live === 'undefined'){
-                $rootScope.live = !$rootScope.live;    
-            }else{
-                $rootScope.live = live;
-            }            
 
-            if(!$rootScope.live){
-                wrapper.html('');
-            }else{
-                wrapper.html(iframe);
-            }
+    $rootScope.changeLiveStatus = function(live){
+        if(typeof live === 'undefined'){
+            $rootScope.live = !$rootScope.live;    
+        }else{
+            $rootScope.live = live;
+        }            
+
+        if(!$rootScope.live){
+            wrapper.html('');
+        }else{
+            wrapper.html(iframe);
         }
     }
+    // }
     
     
     // debugger;
