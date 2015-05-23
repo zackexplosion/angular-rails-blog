@@ -1,3 +1,7 @@
+$font-family-base: 'LiHei Pro','微軟正黑體', "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+// $font-family-serif: 'LiHei Pro','微軟正黑體';
+// $font-family-sans-serif: 'LiHei Pro','微軟正黑體';
+
 @import "../loading";
 
 
@@ -11,12 +15,14 @@
 @import "bootstrap";
 
 @import "bootswatch/united/bootswatch";
-
 @import "bootstrap/variables";
 @import "./*";
 
+
+
 body{
   padding-top : 50px;
+  // font-family: 'LiHei Pro','微軟正黑體' + ;
 }
 
 pre{
