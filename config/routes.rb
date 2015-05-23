@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'page#index'
+  root 'application#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # resources :p, only: [:index, :show], :controller => 'posts'
   resources :posts, only: [:index, :show], :defaults => {format: :json}
 
-  get 'templates' => 'page#template'
+  get 'templates' => 'application#template'
   get 'is_living' => 'application#is_living'
 
   
@@ -70,5 +70,5 @@ Rails.application.routes.draw do
       end
     end
 
-    get '*path' => 'page#index' 
+    get '*path' => 'application#index' 
 end
