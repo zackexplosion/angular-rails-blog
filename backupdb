@@ -1,6 +1,6 @@
 #!/bin/bash
 
-heroku run sh ./heroku_backupdatabase | sed '1d'  >  db/seeds.rb
+heroku run sh ./heroku_backupdatabase | sed '1d' | base64 --decode >  db/seeds.rb
 
 git add .
 git commit -m 'database backup'
