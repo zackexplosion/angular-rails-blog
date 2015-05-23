@@ -4,10 +4,18 @@ RAILS_ENV=production rake assets:precompile
 # mv -vf public/assets/ ../zackexplosion/
 # mkdir public/assets
 
+# clean old mani file
+rm -rf ../zackexplosion/assets/mani*.json
+
+# copy new assets
 cp -av public/* ../zackexplosion/
 
+# remove local compile assets
 rm -rf public/assets/
+
+# get newest manifile
 cp -v ../zackexplosion/assets/mani*.json public/assets/
+
 git add .
 git commit -m 'update manifest'
 
