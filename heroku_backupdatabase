@@ -1,4 +1,3 @@
-
 rake db:seed:dump > /dev/null
 
-cat db/seeds.rb
+cat db/seeds.rb | base64
