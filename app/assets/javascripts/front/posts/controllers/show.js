@@ -9,7 +9,10 @@ function( $rootScope,   HightlightCodes,   $scope,   POST){
 
     HightlightCodes();
 
-
+    $scope.edit = function(p){
+        var url = '/backend/#/posts/edit/' + p.id;
+        window.open(url);
+    }
 
 
     /*

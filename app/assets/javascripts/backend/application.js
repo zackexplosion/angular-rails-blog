@@ -48,6 +48,7 @@ function($stateProvider,   $urlRouterProvider,   Path) {
 //
 // For any unmatched url, redirect to /state1
 $urlRouterProvider
+.when('/posts/edit/:id','/posts/edit/:id/editor')
 .otherwise("/posts/list");
 //
 // Now set up the states

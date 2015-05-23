@@ -99,10 +99,33 @@ function($locationProvider,   $httpProvider) {
 function($stateProvider,   $urlRouterProvider,   Path) {
 //
 // For any unmatched url, redirect to /state1
-$urlRouterProvider.otherwise("/p/list");
+$urlRouterProvider
+.when('/p/show/:id', '/p/:id')
+.when('/users/sign_in', function(){
+    return;
+})
+.otherwise('/')
+
+// .when('/p/show/:id', 
+// [         '$state', 
+// function ( $state ){
+//     debugger;
+// }]);
+
+
+    // $urlRouterProvider
+    //   .when('/app/list', ['$state', 'myService', function ($state, myService) {
+    //         $state.go('app.list.detail', {id: myService.Params.id});
+    // }])
+// .otherwise("");
 //
 // Now set up the states
 $stateProvider
+.state('index', {
+    url: '/',
+    templateUrl: Path.template + "/posts/list.html",
+    controller: 'PostListCrtl'
+})
 .state('posts', {
     abstract : true,
     url: '/p',
@@ -114,7 +137,7 @@ $stateProvider
     controller: 'PostListCrtl'
 })
 .state('posts.show', {
-    url: "/show/:id",
+    url: "/:id",
     templateUrl: Path.template + "/posts/show.html",
     resolve   : {
         POST : ['POSTS', '$stateParams', function(POSTS, $stateParams){
@@ -126,3 +149,4 @@ $stateProvider
 })
 
 }])
+

@@ -3,17 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def index    
-    # t = params[:path]
-    
-    # if t == nil
-    #   # render :template => "templates/#{t}", :layout => false
-    #   render :template => 'layouts/application.html.erb', :layout => false
-    # else
-    #   redirect_to t
-    # end
-    # og_img = image_path("favicon.png")
+  before_action :setup_og
+ 
 
+  def setup_og
     og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
     
     @og = {
@@ -21,7 +14,10 @@ class ApplicationController < ActionController::Base
       :title       => "Zack's Blog",
       :description => '什麼都寫的部落格!',
       :image       => request.protocol[0..-3] + og_img
-    }
+    }    
+  end
+
+  def index
 
     if params[:path]
       p = params[:path].split('/').last.to_i

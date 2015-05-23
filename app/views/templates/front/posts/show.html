@@ -1,5 +1,11 @@
+<div class="post-show">
+<% if user_signed_in? %>
+<h1>{{post.title}}<a href="" class="edit-link" ng-click="edit(post)">edit</a></h1>
+<% else %>
 <h1>{{post.title}}</h1>
+<% end%>
 <article ng-bind-html="post.content"></article>
 
 <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
