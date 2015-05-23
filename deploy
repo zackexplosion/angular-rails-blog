@@ -16,4 +16,5 @@ cd ../blog
 #pwd
 #ls
 
-git push heroku master
+#git push heroku master
+git remote | xargs -L1 git push --all
