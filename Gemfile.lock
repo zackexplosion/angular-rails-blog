@@ -268,7 +268,7 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails (~> 4.1.0)
   compass-rails!
-  devise
+  devise (= 3.4.1)
   gist
   guard-livereload (~> 2.4)
   jbuilder (~> 2.0)

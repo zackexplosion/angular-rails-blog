@@ -63,7 +63,7 @@ gem 'codemirror-rails'
 gem 'redcarpet'
 
 # for login
-gem 'devise'
+gem 'devise', '3.4.1'
 
 gem 'gist'
 
