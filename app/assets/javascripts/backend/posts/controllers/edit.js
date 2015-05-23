@@ -1,8 +1,8 @@
 angular
 .module('blog')
 .controller('PostEditCrtl', 
-[         '$scope', 'POST', 'imgur',
-function( $scope,    POST,   imgur){
+[         '$scope', 'POST', '$state', 'imgur',
+function( $scope,    POST,   $state,   imgur){
    $scope.post = POST;
 
     $scope.editorOptions = {
@@ -11,7 +11,13 @@ function( $scope,    POST,   imgur){
         mode: 'markdown'
     };
 
+    $scope.preview = function(){
+        $scope.post.$save().then(function(res){
+            $state.go('^.preview');
+        });
+    }
+
     $scope.save = function () {
-        $scope.post.$save();        
+        $scope.post.$save();
     }
 }])
