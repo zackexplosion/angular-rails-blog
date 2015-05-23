@@ -4,3 +4,5 @@ heroku run sh ./heroku_backupdatabase | sed '1d' | base64 --decode >  db/seeds.r
 
 git add .
 git commit -m 'database backup'
+
+powder down && rake db:reset db:seed:user && powder up
