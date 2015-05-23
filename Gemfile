@@ -62,6 +62,9 @@ gem 'codemirror-rails'
 # https://github.com/vmg/redcarpet markdown parser
 gem 'redcarpet'
 
+# for login
+gem 'devise'
+
 gem 'gist'
 
 source 'https://rails-assets.org' do
