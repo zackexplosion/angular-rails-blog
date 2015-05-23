@@ -43,6 +43,9 @@ pre{
   .buttons{
     float: right;  
   }
+  .video-wrapper{
+    padding-bottom: 44%;
+  }
 }
 
 
@@ -56,8 +59,8 @@ pre{
 
 .video-wrapper{
   position: relative;
-  width: 100%;
-  padding-bottom: 32.5%;
+  width: 100%;  
+  padding-bottom: 56.25%;
   iframe{
     position: absolute;
     top:0;
