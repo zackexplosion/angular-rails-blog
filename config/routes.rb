@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
     namespace :backend do
-      get '/' => 'page#index'
+      get '/' => 'backend#index'
       # Directs /admin/products/* to Admin::ProductsController
       # (app/controllers/admin/products_controller.rb)
       resources :posts, defaults: {format: :json} do
