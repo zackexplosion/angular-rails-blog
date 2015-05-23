@@ -92,7 +92,7 @@ $stateProvider
 })
 .state('posts.edit.preview', {
     url: "/preview",
-    // templateUrl: Path.template + "/posts/edit.html",
+    templateUrl: Path.template + "/posts/edit.preview.html",
     // template   : '<ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror>',
     controller : 'PostPreviewCrtl'
 })

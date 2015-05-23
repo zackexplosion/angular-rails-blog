@@ -1,3 +1,4 @@
+
 angular
 .module('blog')
 .controller('PostPreviewCrtl', 
@@ -8,4 +9,6 @@ function( $scope,   POST,   imgur){
     //     lineNumbers: true,
     //     mode: 'markdown'
     // };
+
+    $scope.preview_url = '/p/' + POST.id;
 }])
