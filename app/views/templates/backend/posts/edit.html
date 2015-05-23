@@ -1,5 +1,18 @@
 <input type="text" class="form-control" ng-model="post.title" />
 <hr />
+<ul class="nav nav-tabs">
+  <li 
+    ng-class="{active : isActive('editor') } "
+  >
+    <a ui-sref=".editor">編輯</a>
+  </li>
+  <li
+    ng-class="{active : isActive('preview') } "
+  >
+    <a ui-sref=".preview">預覽</a>
+  </li>
+</ul>
+
 <ui-view></ui-view>
 <!-- <ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror> -->
 <button class="btn btn-primary" ng-click="save()">儲存</button>

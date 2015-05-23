@@ -26,6 +26,16 @@ angular
     'ui.router',
     'ngResource'
 ])
+.run(
+[        '$rootScope', '$state',
+function( $rootScope,   $state){
+    
+    $rootScope.isActive = function(token){
+        var path = $state.current.name;
+        var m = path.indexOf(token) != -1;        
+        return m;
+    }
+}])
 .constant('Path', {
     'template': '/templates?t=backend'
 })
@@ -74,10 +84,16 @@ $stateProvider
     controller: 'PostEditCrtl'    
 })
 .state('posts.edit.editor', {
-    url: "/edit/:id/editor",
+    url: "/editor",
     // templateUrl: Path.template + "/posts/edit.html",
     template   : '<ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror>',
     controller : 'PostEditorCrtl'
+})
+.state('posts.edit.preview', {
+    url: "/preview",
+    // templateUrl: Path.template + "/posts/edit.html",
+    // template   : '<ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror>',
+    controller : 'PostPreviewCrtl'
 })
 
 
