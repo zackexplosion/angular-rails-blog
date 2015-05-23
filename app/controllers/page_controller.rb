@@ -17,7 +17,7 @@ class PageController < ApplicationController
       :url         => 'http://' + request.host,
       :title       => "Zack's Blog",
       :description => '什麼都寫的部落格!',
-      :image       => 'http://' + request.host + og_img
+      :image       => og_img
     }
 
     if params[:path]
