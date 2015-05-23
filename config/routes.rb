@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show], :defaults => {format: :json}
 
   get 'templates' => 'application#template'
-  get 'is_living' => 'application#is_living'
+  get 'streaming' => 'application#streaming'
 
   
 
