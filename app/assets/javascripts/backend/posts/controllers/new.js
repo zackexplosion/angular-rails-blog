@@ -7,7 +7,7 @@ function( POSTS,   $state){
     post.title = 'hello';
     post.content = 'hello world';
     post.$save().then(function(res){
-        $state.go('posts.edit',{id : res.id});
+        $state.go('posts.edit.editor',{id : res.id});
     });
 
 }])

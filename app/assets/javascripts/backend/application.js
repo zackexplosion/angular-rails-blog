@@ -37,7 +37,8 @@ angular
 function($stateProvider,   $urlRouterProvider,   Path) {
 //
 // For any unmatched url, redirect to /state1
-$urlRouterProvider.otherwise("/posts/list");
+$urlRouterProvider
+.otherwise("/posts/list");
 //
 // Now set up the states
 $stateProvider
@@ -72,5 +73,12 @@ $stateProvider
     },
     controller: 'PostEditCrtl'    
 })
+.state('posts.edit.editor', {
+    url: "/edit/:id/editor",
+    // templateUrl: Path.template + "/posts/edit.html",
+    template   : '<ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror>',
+    controller : 'PostEditorCrtl'
+})
+
 
 }])
