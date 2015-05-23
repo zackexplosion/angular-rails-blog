@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     
   end
 
-  def is_living
+  def streaming
     require 'net/http'
     uri = URI('https://api.twitch.tv/kraken/streams/cstony0917')
     res = Net::HTTP.get(uri) # => String

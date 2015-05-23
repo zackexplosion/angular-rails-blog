@@ -36,29 +36,29 @@ function( $rootScope,   $http){
 
     // if( $rootScope.window.width >= 768){
 
-    $rootScope.live = false;
+    $rootScope.streaming = false;
 
-    $rootScope.is_living = function(){
-        return $rootScope.live;
+    $rootScope.is_streaming = function(){
+        return $rootScope.streaming;
     }
 
     var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
     var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
 
-    $http.get('/is_living').success(function(res){
+    $http.get('/streaming').success(function(res){
         // wrapper.html(iframe);
         $rootScope.changeLiveStatus(res);
     });
 
 
-    $rootScope.changeLiveStatus = function(live){
-        if(typeof live === 'undefined'){
-            $rootScope.live = !$rootScope.live;    
+    $rootScope.changeLiveStatus = function(streaming){
+        if(typeof streaming === 'undefined'){
+            $rootScope.streaming = !$rootScope.streaming;
         }else{
-            $rootScope.live = live;
+            $rootScope.streaming = streaming;
         }            
 
-        if(!$rootScope.live){
+        if(!$rootScope.streaming){
             wrapper.html('');
         }else{
             wrapper.html(iframe);
