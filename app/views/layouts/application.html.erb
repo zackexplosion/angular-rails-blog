@@ -35,8 +35,13 @@
 
 <div class="container">
   <div id="livehouse">
+    <div class="buttons" ng-click="changeLiveStatus()">
+      <button ng-show="live" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+      <button ng-hide="live" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+    </div>
     <h2>現場直播</h2>
-    <div class="video-wrapper"></div>
+    <div ng-show="live" class="video-wrapper"></div>
+    <hr />
   </div>
 
   <div ui-view></div>

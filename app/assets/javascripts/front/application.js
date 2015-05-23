@@ -35,10 +35,23 @@ function( $rootScope){
     };
 
     if( $rootScope.window.width >= 768){
+        $rootScope.live = true;
+
         var iframe = '<iframe src="https://livehouse.in/embed/channel/117413" frameborder="0" allowfullscreen></iframe>';
-        angular
-        .element(document.querySelector('#livehouse .video-wrapper'))
-        .html(iframe);
+        
+        var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
+
+        wrapper.html(iframe);
+
+        $rootScope.changeLiveStatus = function(){
+            $rootScope.live = !$rootScope.live;
+
+            if(!$rootScope.live){
+                wrapper.html('');
+            }else{
+                wrapper.html(iframe);
+            }
+        }
     }
     
     
