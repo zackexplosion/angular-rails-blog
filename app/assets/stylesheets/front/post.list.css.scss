@@ -1,6 +1,10 @@
 #post-list{
   .title{
-    color : #000;
+    display : block;
+    color   : #000;
+    h1{
+      margin  : 0.67em 0;
+    }
     &:hover{
       color : #97310e;
     }
