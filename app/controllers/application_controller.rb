@@ -10,4 +10,13 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Request-Method'] = '*'    
   end
 
+  def is_living
+    require 'net/http'
+    uri = URI('https://api.twitch.tv/kraken/streams/cstony0917')
+    res = Net::HTTP.get(uri) # => String
+    res = JSON.parse(res)
+
+    render :json => res['stream'] != 'null'
+  end
+
 end

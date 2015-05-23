@@ -26,8 +26,8 @@ angular
     'ngResource'
 ])
 .run(
-[        '$rootScope', 
-function( $rootScope){
+[        '$rootScope', '$http',
+function( $rootScope,   $http){
     $rootScope.title = '';
     $rootScope.window = {
         width  : Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
@@ -35,16 +35,25 @@ function( $rootScope){
     };
 
     if( $rootScope.window.width >= 768){
-        $rootScope.live = true;
 
-        var iframe = '<iframe src="https://livehouse.in/embed/channel/117413" frameborder="0" allowfullscreen></iframe>';
-        
+        $rootScope.live = false;
+
+        var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
         var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
 
-        wrapper.html(iframe);
+        $http.get('/is_living').success(function(res){            
+            // wrapper.html(iframe);
+            $rootScope.changeLiveStatus(res);
 
-        $rootScope.changeLiveStatus = function(){
-            $rootScope.live = !$rootScope.live;
+        });
+       
+        
+        $rootScope.changeLiveStatus = function(live){
+            if(typeof live === 'undefined'){
+                $rootScope.live = !$rootScope.live;    
+            }else{
+                $rootScope.live = live;
+            }            
 
             if(!$rootScope.live){
                 wrapper.html('');
