@@ -11,7 +11,7 @@ rm -rf ../zackexplosion/assets/mani*.json
 cp -av public/* ../zackexplosion/
 
 # remove local compile assets
-rm -rf public/assets/
+rm -rf public/assets/*
 
 # get newest manifile
 cp -v ../zackexplosion/assets/mani*.json public/assets/
