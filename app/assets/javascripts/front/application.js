@@ -27,11 +27,12 @@ angular
     'ui.router',
     'ngResource'
 ])
-.config(function(AngularyticsProvider) {
+.config(['AngularyticsProvider', function(AngularyticsProvider) {
     AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
-}).run(function(Angularytics) {
+}])
+.run(['Angularytics', function(Angularytics) {
     Angularytics.init();
-})
+}])
 .run(
 [        '$rootScope', '$http',
 function( $rootScope,   $http){
