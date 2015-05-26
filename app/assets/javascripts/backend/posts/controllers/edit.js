@@ -21,6 +21,10 @@ function( $scope,    POST,   $state,   imgur,   $state,   $document){
         $scope.post.$save();
     }
 
+    $scope.show_on_front = function () {
+        window.open('/p/' + POST.id);
+    }   
+
     // $scope.is_running_combo = false;
 
     $scope.is_cmd_press = false;   
