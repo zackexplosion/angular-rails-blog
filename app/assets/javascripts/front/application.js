@@ -15,16 +15,23 @@
 //= require angular
 //= require angular-resource
 //= require angular-sanitize
+//= require angularytics
 //= require ui-router
 //= require_self
 //= require_tree .
 
 angular
 .module('blog', [
+    'angularytics',
     'ngSanitize',
     'ui.router',
     'ngResource'
 ])
+.config(function(AngularyticsProvider) {
+    AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
+}).run(function(Angularytics) {
+    Angularytics.init();
+})
 .run(
 [        '$rootScope', '$http',
 function( $rootScope,   $http){

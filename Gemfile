@@ -86,4 +86,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-ui-codemirror'
 
   gem 'rails-assets-highlightjs'
+  gem 'rails-assets-angularytics'
 end
