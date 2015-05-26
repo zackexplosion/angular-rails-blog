@@ -10,7 +10,15 @@ gem 'pg', '0.18.1'
 
 gem 'seed_dump'
 
-gem 'rails_12factor', group: :production
+
+group :production do
+  gem 'rails_12factor'
+  # for monitor
+  # https://devcenter.heroku.com/articles/newrelic#ruby-installation-and-configuration
+  gem 'unicorn'
+  gem 'newrelic_rpm'
+end
+
 
 
 # Use SCSS for stylesheets
