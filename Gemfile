@@ -26,7 +26,10 @@ gem 'sass-rails', '~> 5.0'
 # gem 'compass-rails'
 gem 'compass-rails', github: "Compass/compass-rails", branch: "master"
 gem 'bootstrap-sass'
-gem 'bootswatch-rails'
+# gem 'bootswatch-rails'
+
+gem 'bootswatch-rails', :git => 'https://github.com/cstony0917/bootswatch-rails.git'
+# gem 'bootswatch-rails', path: "../bootswatch-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -82,5 +85,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-ui-codemirror'
 
-  gem 'rails-assets-highlightjs','8.5'
+  gem 'rails-assets-highlightjs'
 end
