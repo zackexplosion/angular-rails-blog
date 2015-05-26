@@ -77,5 +77,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_controller.asset_host = '//cstony0917.github.io/zackexplosion/'
+  # config.action_controller.asset_host = '//cstony0917.github.io/zackexplosion/'
+
+  config.action_controller.asset_host = ENV['ASSETS_DOMAIN'] || '//cstony0917.github.io/zackexplosion/'
+
+  
 end
