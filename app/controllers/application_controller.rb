@@ -66,9 +66,9 @@ class ApplicationController < ActionController::Base
 
   def robot?
     m = request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
-    logger.info '!!!!!!!!!!!!!!!'
-    logger.info m
-    logger.info '!!!!!!!!!!!!!!!'
+    # logger.info '!!!!!!!!!!!!!!!'
+    # logger.info m
+    # logger.info '!!!!!!!!!!!!!!!'
     return m
   end
 
