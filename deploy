@@ -2,7 +2,7 @@
 
 date1=$(date +"%s")
 
-RAILS_ENV=production rake assets:precompile
+ASSETS_HOSTING_DOMAIN=cdn.zackexplosion.com RAILS_ENV=production rake assets:precompile
 # rm -rf ../zackexplosion/assets
 # mv -vf public/assets/ ../zackexplosion/
 # mkdir public/assets
