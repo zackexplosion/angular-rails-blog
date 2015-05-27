@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'templates' => 'application#template'
   get 'streaming' => 'application#streaming'
+  get 'sitemap'   => 'application#sitemap'
 
   
 

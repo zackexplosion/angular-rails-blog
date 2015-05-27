@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_og
-    
+
     @og = {
       :url         => request.protocol + request.host,
       :title       => "Zack's Blog",
@@ -70,6 +70,31 @@ class ApplicationController < ActionController::Base
     logger.info m
     logger.info '!!!!!!!!!!!!!!!'
     return m
+  end
+
+  def sitemap
+    @maps = []
+
+    base = request.protocol + request.host
+    
+    @maps.push({
+      :url => {
+        :loc => base
+      }
+    })
+
+    base = base +  '/p/'
+
+    Post.all.each do |p|
+      @maps.push({
+        :url => {
+          :loc => base + p.id.to_s
+        }
+      })
+    end
+    
+    render :xml => @maps.to_xml(:root => 'urlset')
+    # render :template => "layout/sitemap"
   end
 
 
