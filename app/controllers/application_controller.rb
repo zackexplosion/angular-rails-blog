@@ -18,15 +18,20 @@ class ApplicationController < ActionController::Base
   end
 
   def index
+    require 'redcarpet/render_strip'
 
     if params[:path]
       p = params[:path].split('/').last.to_i
+
+      content = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :space_after_headers => true)
       
       if p != 0
         @post             = Post.find(p)
         @og[:url]         = @og[:url] + '/' + params[:path]
-        @og[:title]       = @post.title + " | "
-        @og[:description] = @post.content
+        @og[:title]       = @post.title + " | " + @og[:title]
+        @og[:description] = content.render @post.content
+
+
       end
     end
 
