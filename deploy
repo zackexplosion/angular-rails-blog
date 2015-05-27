@@ -23,10 +23,10 @@ git add .
 git commit -m 'update manifest'
 
 cd ../zackexplosion
-git branch gh-pages
+# git branch gh-pages
 git add .
 git commit -m 'update assets'
-git push origin gh-pages
+git push origin master
 
 cd ../blog
 #pwd
