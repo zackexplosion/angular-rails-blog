@@ -26,18 +26,19 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_og
+    
+    @og = {
+      :url         => request.protocol + request.host,
+      :title       => "Zack's Blog",
+      :description => '什麼都寫的部落格!',
+      # :image       => request.protocol[0..-3] + og_img
+    }
+
+    @og_images = []
+
 
     if robot?
-      og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
-      
-      @og = {
-        :url         => request.protocol + request.host,
-        :title       => "Zack's Blog",
-        :description => '什麼都寫的部落格!',
-        # :image       => request.protocol[0..-3] + og_img
-      }
-
-      @og_images = []
+      og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)      
 
       if params[:path]
         p = params[:path].split('/').last.to_i      
@@ -64,8 +65,11 @@ class ApplicationController < ActionController::Base
   end
 
   def robot?
-    puts request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
-    true
+    m = request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    logger.info '!!!!!!!!!!!!!!!'
+    logger.info m
+    logger.info '!!!!!!!!!!!!!!!'
+    return m
   end
 
 
