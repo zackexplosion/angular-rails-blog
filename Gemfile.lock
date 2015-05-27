@@ -106,7 +106,6 @@ GEM
     execjs (2.5.2)
     ffi (1.9.8)
     formatador (0.2.5)
-    gist (4.3.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     guard (2.12.5)
@@ -270,10 +269,10 @@ DEPENDENCIES
   codemirror-rails
   compass-rails!
   devise (= 3.4.1)
-  gist
   guard-livereload (~> 2.4)
   jbuilder (~> 2.0)
   newrelic_rpm
+  nokogiri
   pg (= 0.18.1)
   rack-livereload
   rails (= 4.2.1)

@@ -4,40 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :setup_og
- 
-
-  def setup_og
-    og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
-    
-    @og = {
-      :url         => request.protocol + request.host,
-      :title       => "Zack's Blog",
-      :description => '什麼都寫的部落格!',
-      :image       => request.protocol[0..-3] + og_img
-    }    
-  end
 
   def index
-    require 'redcarpet/render_strip'
-
-    if params[:path]
-      p = params[:path].split('/').last.to_i
-
-      content = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :space_after_headers => true)
-      
-      if p != 0
-        @post             = Post.find(p)
-        @og[:url]         = @og[:url] + '/' + params[:path]
-        @og[:title]       = @post.title + " | " + @og[:title]
-        @og[:description] = content.render @post.content
-
-
-      end
-    end
-
-    render :template => 'layouts/application.html.erb', :layout => false
-    
-  end
+    render :template => 'layouts/application.html.erb', :layout => false    
+  end 
 
   def streaming
     require 'net/http'
@@ -54,5 +24,49 @@ class ApplicationController < ActionController::Base
 
     render :template => "templates/#{t}", :layout => false
   end
+
+  def setup_og
+
+    if robot?
+      og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
+      
+      @og = {
+        :url         => request.protocol + request.host,
+        :title       => "Zack's Blog",
+        :description => '什麼都寫的部落格!',
+        # :image       => request.protocol[0..-3] + og_img
+      }
+
+      @og_images = []
+
+      if params[:path]
+        p = params[:path].split('/').last.to_i      
+        if p != 0
+          require 'redcarpet/render_strip'
+          @post       = Post.find(p)
+          description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :space_after_headers => true).render @post.content
+          # description = content.render @post.content
+          @og[:url]         = @og[:url] + '/' + params[:path]
+          @og[:title]       = @post.title + " | " + @og[:title]
+          @og[:description] = description
+
+          image_tags  = Nokogiri::HTML(@post.html_content).css('img')
+
+          image_tags.each do |i|
+            @og_images.push i['src']
+          end
+        end
+      end
+
+      @og_images.push request.protocol[0..-3] + og_img
+
+    end
+  end
+
+  def robot?
+    puts request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    true
+  end
+
 
 end

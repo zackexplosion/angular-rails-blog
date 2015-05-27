@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
   before_save :save_content_to_markdown
 
   def html_content
-    self.render_content
+    self.render_markdown self.content
+    # self.render_content
     # self.render_markdown self.content
   end
 

@@ -76,7 +76,8 @@ gem 'redcarpet'
 # for login
 gem 'devise', '3.4.1'
 
-gem 'gist'
+# gem 'gist'
+gem 'nokogiri'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angularjs', '1.3.0'
