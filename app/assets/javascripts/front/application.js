@@ -36,7 +36,6 @@ angular
 .run(
 [        '$rootScope', '$http',
 function( $rootScope,   $http){
-    $rootScope.title = '';
     $rootScope.window = {
         width  : Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
         height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
@@ -80,6 +79,19 @@ function( $rootScope,   $http){
 .constant('Path', {
     'template': '/templates?t=front'
 })
+.factory('SetTitle',[function(){
+    var default_title = "Zack's Blog";
+    var _title = angular.element( document.querySelector('title') );
+
+    return function(title){
+        if(typeof title === 'undefined'){
+            _title.html(default_title);    
+        }else{
+            _title.html(title + ' | ' + default_title);
+        }
+        
+    }
+}])
 .factory('LoadingInterceptor', 
 [       '$rootScope', 
 function($rootScope){

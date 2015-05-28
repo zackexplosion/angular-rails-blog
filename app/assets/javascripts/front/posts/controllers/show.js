@@ -1,11 +1,11 @@
 angular
 .module('blog')
 .controller('PostShowCrtl', 
-[        '$rootScope', 'HightlightCodes', '$scope', 'POST', 
-function( $rootScope,   HightlightCodes,   $scope,   POST){
+[        'SetTitle', 'HightlightCodes', '$scope', 'POST', 
+function( SetTitle,   HightlightCodes,   $scope,   POST){
     $scope.post = POST;
 
-    $rootScope.title = $scope.post.title + ' | ';
+    SetTitle(POST.title);
 
     HightlightCodes();
 
