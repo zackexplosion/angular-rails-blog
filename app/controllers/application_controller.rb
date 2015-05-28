@@ -55,7 +55,11 @@ class ApplicationController < ActionController::Base
   end
 
   def robot?
-    m = request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    m = false
+
+    unless request.env["HTTP_USER_AGENT"] == nil
+      m = request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    end
     # logger.info '!!!!!!!!!!!!!!!'
     # logger.info m
     # logger.info '!!!!!!!!!!!!!!!'
