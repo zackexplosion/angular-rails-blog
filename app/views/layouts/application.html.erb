@@ -3,7 +3,7 @@
 <head>
   <title><%= @og[:title] %></title>
   <meta content='width=device-width,initial-scale=1,user-scalable=no' name='viewport'>
-  <base href="/"></base>
+  <base href="/" />
   <%= favicon_link_tag 'favicon.png'%>
   
   <meta property="og:locale" content="zh_TW"/>
@@ -26,10 +26,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="loading" ng-show="loading" class="whirly-loader">Loading…</div>
+<div id="loading" data-ng-show="loading" class="whirly-loader">Loading…</div>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-      <a class="navbar-brand" ui-sref="index">
+      <a class="navbar-brand" data-ui-sref="index">
         <img src="<%= asset_path("favicon.png", type: :image) %>" />Zack's Blog
       </a>
     </div>
@@ -39,17 +39,17 @@
 </nav>
 
 <div class="container">
-  <div id="livehouse" ng-class="{living : is_streaming()}">
-    <div class="buttons" ng-click="changeLiveStatus()">
-      <button ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
-      <button ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+  <div id="livehouse" data-ng-class="{living : is_streaming()}">
+    <div class="buttons" data-ng-click="changeLiveStatus()">
+      <button data-ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+      <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
     </div>
-    <h3 ng-click="changeLiveStatus()">現場直播</h3>
-    <div ng-show="is_streaming()" class="video-wrapper"></div>
+    <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
+    <div data-ng-show="is_streaming()" class="video-wrapper"></div>
     <hr />
   </div>
 
-  <div ui-view></div>
+  <div data-ui-view></div>
 </div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
