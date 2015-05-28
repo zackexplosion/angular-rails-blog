@@ -65,6 +65,7 @@ group :development, :test do
   gem "rack-livereload"
   gem 'guard-livereload', '~> 2.4', require: false
   gem 'better_errors'
+  gem 'meta_request'
 end
 
 # 很棒棒的編輯器，超威，酷!
