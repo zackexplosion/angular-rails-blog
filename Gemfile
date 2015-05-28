@@ -65,10 +65,10 @@ group :development, :test do
   gem "rack-livereload"
   gem 'guard-livereload', '~> 2.4', require: false
   gem 'better_errors'
-  # gem 'meta_request'
+  gem 'meta_request'
 end
 
-  gem 'meta_request'
+  # gem 'meta_request'
 
 # 很棒棒的編輯器，超威，酷!
 gem 'codemirror-rails'
