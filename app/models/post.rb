@@ -38,6 +38,7 @@ class Post < ActiveRecord::Base
   def render_markdown content
     extensions = {
       :fenced_code_blocks => true,
+      :strikethrough => true
     }
     Redcarpet::Markdown
     .new(TargetBlankRenderer, extensions)
