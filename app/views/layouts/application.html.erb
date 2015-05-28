@@ -16,8 +16,9 @@
   <meta property="og:image" content="<%= v %>"/>
   <% end %>
 
-
   <meta property="og:site_name" content="ZackExplosion"/>
+
+  <meta name="description" content="<%= @og[:description] %>">
 
   <%= stylesheet_link_tag 'front/application', media: 'all' %>
   <%= javascript_include_tag 'front/application' %>
