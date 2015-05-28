@@ -52,9 +52,9 @@ function( $rootScope,   $http){
     var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
     var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
 
-    $http.get('/streaming').success(function(res){
-        // wrapper.html(iframe);
-        $rootScope.changeLiveStatus(res);
+    $http.jsonp('https://api.twitch.tv/kraken/streams/cstony0917?callback=JSON_CALLBACK').success(function(res){        
+        var streaming = !(res.stream === null);
+        $rootScope.changeLiveStatus(streaming);
     });
 
 

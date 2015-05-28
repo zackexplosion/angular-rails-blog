@@ -7,18 +7,8 @@ class ApplicationController < ActionController::Base
 
   def index
     render :template => 'layouts/application.html.erb', :layout => false
-  end 
-
-  def streaming
-    require 'net/http'
-    uri = URI('https://api.twitch.tv/kraken/streams/cstony0917')
-    res = Net::HTTP.get(uri) # => String
-    res = JSON.parse(res)
-    
-    m = res['stream'] != nil
-    render :json => m
   end
-
+  
   def template
     t = params[:t]
 
@@ -73,21 +63,9 @@ class ApplicationController < ActionController::Base
   end
 
   def sitemap
-    @maps = []
-
     @base = request.protocol + request.host
     
     @posts = Post.all
-
-    # base = base + '/p/'
-
-    # Post.all.each do |p|
-    #   @maps.push({
-    #     :url => {
-    #       :loc => base + p.id.to_s
-    #     }
-    #   })
-    # end
 
     render 'layouts/sitemap.builder'
   end
