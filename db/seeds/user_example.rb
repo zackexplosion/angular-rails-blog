@@ -1,0 +1,1 @@
+User.create(:email => 'cstony0917@gmail.com', :passowrd => '')
