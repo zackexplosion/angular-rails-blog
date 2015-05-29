@@ -27,6 +27,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!--
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -35,6 +36,8 @@
   js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=890410117671592";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+-->
+
 <div id="loading" data-ng-show="loading" class="whirly-loader">Loading…</div>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -53,9 +56,9 @@
   <div id="sidebar" class="col-md-3">
     <div id="sidebar-wrapper">
 
-    <div class="fb-like" data-href="{{current_url}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<!--     <div class="fb-like" data-href="{{current_url}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div> -->
 
-    <hr />
+    <!-- <hr /> -->
 
     <div id="livehouse" data-ng-class="{living : is_streaming()}">
       <div class="buttons" data-ng-click="changeLiveStatus()">

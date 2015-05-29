@@ -40,6 +40,9 @@ pre{
 }
 
 #livehouse{
+  h3{
+    margin-top: 5px;
+  }
   .buttons{
     float: right;  
     .btn{
@@ -96,11 +99,14 @@ pre {
   }
 }
 
+#sidebar{
+  padding-top: 1.67em;
+}
+
 @media (min-width: $screen-md-min){
 #sidebar{
   float  : right;
-  height : 100vh;
-  padding-top: 1.67em;
+  height : 100vh;  
 }
 #sidebar-wrapper{
   position: fixed;
