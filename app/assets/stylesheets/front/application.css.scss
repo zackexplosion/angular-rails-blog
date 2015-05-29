@@ -21,7 +21,7 @@ $font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-se
 
 
 body{
-  padding-top : 50px;
+  padding : 50px 0;
   // font-family: 'LiHei Pro','微軟正黑體' + ;
 }
 
@@ -75,18 +75,20 @@ pre {
 
 @media (min-width: $screen-md-min){
 #sidebar{
-  float  : right;
+  // float  : right;
   height : 100vh;  
 }
 #sidebar-wrapper{
   position: fixed;
-  width: 205px;
+  // width: 205px;
+  width: 283px;
   // right: calc((100vw - 992px) / 2 );
 }
 }
 
 @media (min-width: $screen-lg-min){
 #sidebar-wrapper{
-  width: 255px;
+  // width: 255px;
+  width: 305px;
 }
 }
