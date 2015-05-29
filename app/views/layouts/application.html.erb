@@ -52,7 +52,7 @@
 </nav>
 
 <div class="container">
-  <div class="col-md-8" data-ui-view></div>
+  <div class="row">  
   <div id="sidebar" class="col-md-4">
     <div id="sidebar-wrapper">
 
@@ -82,6 +82,10 @@
     </div>
     <!-- #sidebar-wrapper -->
   </div>
+  <!-- #sidebar -->
+  <div class="col-md-8" data-ui-view></div>
+  </div>
+  <!-- .row -->
 
   
   <%= yield %>
