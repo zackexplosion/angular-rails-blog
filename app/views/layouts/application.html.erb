@@ -41,17 +41,22 @@
 </nav>
 
 <div class="container">
-  <div id="livehouse" data-ng-class="{living : is_streaming()}">
-    <div class="buttons" data-ng-click="changeLiveStatus()">
-      <button data-ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
-      <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+  
+  <div id="sidebar" class="col-md-3">
+    <div id="sidebar-wrapper">
+      <div id="livehouse" data-ng-class="{living : is_streaming()}">
+        <div class="buttons" data-ng-click="changeLiveStatus()">
+          <button data-ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+          <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+        </div>
+        <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
+        <div data-ng-show="is_streaming()" class="video-wrapper"></div>
+        <hr />
+      </div>
     </div>
-    <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
-    <div data-ng-show="is_streaming()" class="video-wrapper"></div>
-    <hr />
   </div>
 
-  <div data-ui-view></div>
+  <div class="col-md-9" data-ui-view></div>
   <%= yield %>
 </div>
 <script>
