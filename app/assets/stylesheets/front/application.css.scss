@@ -68,27 +68,3 @@ pre {
     white-space: pre;
   }
 }
-
-#sidebar{
-  padding-top: 1.67em;
-}
-
-@media (min-width: $screen-md-min){
-#sidebar{
-  // float  : right;
-  height : 100vh;  
-}
-#sidebar-wrapper{
-  position: fixed;
-  // width: 205px;
-  width: 283px;
-  // right: calc((100vw - 992px) / 2 );
-}
-}
-
-@media (min-width: $screen-lg-min){
-#sidebar-wrapper{
-  // width: 255px;
-  width: 305px;
-}
-}
