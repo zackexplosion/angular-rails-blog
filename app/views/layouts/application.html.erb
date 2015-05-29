@@ -66,10 +66,20 @@
         <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
       </div>
       <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
+<!--       <div data-ng-hide="is_streaming()" class="offline">
+        <h4>實況主正在上班</h4>
+      </div> -->
       <div data-ng-show="is_streaming()" class="video-wrapper"></div>
       
     </div>
     <!-- #livehouse -->
+
+      <hr />
+
+      <div id="disqus_thread"></div>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+
     </div>
     <!-- #sidebar-wrapper -->
   </div>
