@@ -27,6 +27,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=890410117671592";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div id="loading" data-ng-show="loading" class="whirly-loader">Loading…</div>
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -44,16 +52,23 @@
   
   <div id="sidebar" class="col-md-3">
     <div id="sidebar-wrapper">
-      <div id="livehouse" data-ng-class="{living : is_streaming()}">
-        <div class="buttons" data-ng-click="changeLiveStatus()">
-          <button data-ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
-          <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
-        </div>
-        <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
-        <div data-ng-show="is_streaming()" class="video-wrapper"></div>
-        <hr />
+
+    <div class="fb-like" data-href="{{current_url}}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+    <hr />
+
+    <div id="livehouse" data-ng-class="{living : is_streaming()}">
+      <div class="buttons" data-ng-click="changeLiveStatus()">
+        <button data-ng-show="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-up"></span></button>
+        <button data-ng-hide="is_streaming()" class="btn"><span class="glyphicon glyphicon-chevron-down"></span></button>
       </div>
+      <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
+      <div data-ng-show="is_streaming()" class="video-wrapper"></div>
+      
     </div>
+    <!-- #livehouse -->
+    </div>
+    <!-- #sidebar-wrapper -->
   </div>
 
   <div class="col-md-9" data-ui-view></div>

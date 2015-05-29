@@ -49,6 +49,8 @@ function( $rootScope,   $http){
         return $rootScope.streaming;
     }
 
+    $rootScope.current_url = window.host;
+
     var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
     var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
 
