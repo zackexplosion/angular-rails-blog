@@ -51,8 +51,13 @@ function( $rootScope,   $http){
 
     $rootScope.current_url = window.host;
 
-    var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';
+    var iframe = '<iframe src="http://www.twitch.tv/cstony0917/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/cstony0917?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from csTony0917 on www.twitch.tv</a>';    
     var wrapper = angular.element(document.querySelector('#livehouse .video-wrapper'))
+
+    var chat_iframe = '<iframe src="http://www.twitch.tv/cstony0917/chat?popout=" frameborder="0" height="700" scrolling="no"></iframe>';
+    var chat_wrapper = angular.element(document.querySelector('#livehouse .chat-wrapper'))
+
+
 
     $http.jsonp('https://api.twitch.tv/kraken/streams/cstony0917?callback=JSON_CALLBACK').success(function(res){        
         var streaming = !(res.stream === null);
@@ -69,8 +74,10 @@ function( $rootScope,   $http){
 
         if(!$rootScope.streaming){
             wrapper.html('');
+            chat_wrapper.html('');
         }else{
             wrapper.html(iframe);
+            chat_wrapper.html(chat_iframe);
         }
     }
     // }
