@@ -110,6 +110,20 @@ function($rootScope){
         }
     };
 }])
+.factory('LoadDisqus', 
+[function(){
+return function(){
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'zackexplosion';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+}
+}])
 .config(
 [       '$locationProvider', '$httpProvider',
 function($locationProvider,   $httpProvider) {    
@@ -155,8 +169,8 @@ $stateProvider
 })
 .state('posts.list', {
     url: "/list",
-    templateUrl: Path.template + "/posts/list.html",
-    controller: 'PostListCrtl'
+    templateUrl : Path.template + "/posts/list.html",
+    controller  : 'PostListCrtl'
 })
 .state('posts.show', {
     url: "/:id",
