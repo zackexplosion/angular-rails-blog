@@ -39,36 +39,6 @@ pre{
 
 }
 
-#livehouse{
-  h3{
-    margin-top: 5px;
-  }
-  .buttons{
-    float: right;  
-    .btn{
-      padding: 2px 6px;
-    }
-  }
-
-  &.living{
-    .buttons{
-      position: relative;
-      top: 11px;
-      right: -1px;
-    }
-  }
-
-
-  .video-wrapper{
-    padding-bottom: 44%;
-  }
-
-  hr{
-    margin-top : 5px;
-  }
-}
-
-
 .navbar-brand{
   img{
     margin-right : 7.5px;
