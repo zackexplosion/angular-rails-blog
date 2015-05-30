@@ -37,18 +37,25 @@ class ApplicationController < ActionController::Base
           @post       = Post.find(p)
 
 
-          options = {
-            :no_links            => true,
-            :no_images           => true,
-            :space_after_headers => true
-          }
-          description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, options).render @post.content
+          # options = {
+          #   :no_links            => true,
+          #   :no_images           => true,
+          #   :space_after_headers => true
+          # }
+          # description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, options).render @post.content
+
+          html_content = Nokogiri::HTML(@post.html_content)
+
+          description = ''
+          html_content.css('p').map do |p|
+            description += p.text
+          end
 
           @og[:url]         = @og[:url] + '/' + params[:path]
           @og[:title]       = @post.title + " | " + @og[:title]
           @og[:description] = description
 
-          image_tags  = Nokogiri::HTML(@post.html_content).css('img')
+          image_tags  = html_content.css('img')
 
           image_tags.each do |i|
             @og_images.push i['src']
@@ -71,6 +78,7 @@ class ApplicationController < ActionController::Base
     # logger.info m
     # logger.info '!!!!!!!!!!!!!!!'
     return m
+    # return true
   end
 
   def sitemap
