@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+xclass ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -35,8 +35,15 @@ class ApplicationController < ActionController::Base
         if p != 0
           require 'redcarpet/render_strip'
           @post       = Post.find(p)
-          description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, :space_after_headers => true).render @post.content
-          # description = content.render @post.content
+
+
+          options = {
+            :no_links            => true,
+            :no_images           => true,
+            :space_after_headers => true
+          }
+          description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, options).render @post.content
+
           @og[:url]         = @og[:url] + '/' + params[:path]
           @og[:title]       = @post.title + " | " + @og[:title]
           @og[:description] = description
