@@ -1,9 +1,15 @@
 <div class="post-show">
+
 <% if user_signed_in? %>
 <h1>{{post.title}}<a href="" class="edit-link" ng-click="edit(post)">edit</a></h1>
 <% else %>
-<h1>{{post.title}}</h1>
+<h1>{{post.title}}<small>{{post.create_at}}</small></h1>
 <% end%>
+
+<small class="date">{{post.published_at}}</small>
+
+  <!-- <h1>Example page header <small>Subtext for header</small></h1> -->
+
 <article ng-bind-html="post.content"></article>
 
 
