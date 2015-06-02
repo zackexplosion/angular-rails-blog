@@ -38,7 +38,8 @@ class Post < ActiveRecord::Base
   def render_markdown content
     extensions = {
       :fenced_code_blocks => true,
-      :strikethrough => true
+      :strikethrough      => true,
+      :lax_spacing        => true
     }
     Redcarpet::Markdown
     .new(TargetBlankRenderer, extensions)
