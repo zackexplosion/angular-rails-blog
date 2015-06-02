@@ -11,8 +11,8 @@
 // about supported directives.
 //
 
-//= require highlightjs
-//= require angular
+// require highlightjs
+// require angular
 //= require angular-resource
 //= require angular-sanitize
 //= require angularytics
