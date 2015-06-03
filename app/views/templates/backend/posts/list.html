@@ -1,16 +1,21 @@
-<table class="table table-borderd">
+<table id="post-list" class="table table-borderd">
   <tr>
     <th>標題</th>
     <th>內容</th>
     <th>動作</th>
+    <th>狀態</th>
   </tr>
   <tr ng-repeat="post in posts">
     <td>{{post.title}}</td>
     <td>{{post.content}}</td>
 <!--     <td><button class="btn btn-default" ui-sref="posts.show({id:post.id})">顯示</button></td> -->
-    <td>
+    <td class="action">
       <button class="btn btn-default" ui-sref="posts.edit.editor({id:post.id})">編輯</button>
       <button class="btn btn-danger" ng-click="delete(post)">刪除</button>
+    </td>
+    <td>
+      <button ng-show="post.state == 'published'" class="btn btn-primary" ng-click="changeState(post)">發佈中</button>
+      <button ng-hide="post.state == 'published'" class="btn btn-warning" ng-click="changeState(post)">草稿</button>
     </td>
   </tr>
 </table>

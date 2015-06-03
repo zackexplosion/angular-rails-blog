@@ -56,7 +56,18 @@ $stateProvider
 .state('posts', {
     abstract : true,
     url: '/posts',
-    template: '<ui-view></ui-view>'
+    template: '<ui-view></ui-view>',
+    controller : ['$scope', function($scope){
+        $scope.changeState = function(post){
+            if(post.state === 'published'){
+                post.state = 'draft';
+            }else{
+                post.state = 'published';
+            }
+
+            post.$save();            
+        }
+    }]
 })
 .state('posts.list', {
     url: "/list",
