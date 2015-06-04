@@ -3,8 +3,14 @@ angular
 .factory('HightlightCodes', 
 [        '$timeout',
 function( $timeout){
-  var hightlight_codes = function(){
-    var codes = document.querySelectorAll('pre code');      
+  var hightlight_codes = function(selector){
+    var codes;
+    if (selector == null){
+      codes = document.querySelectorAll('pre code');
+    }else{
+      codes = document.querySelectorAll(selector);
+    }
+    
     if(codes.length === 0){
       $timeout(function(){
         // debugger;

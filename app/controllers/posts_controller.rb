@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(:state => 'published').order('id desc')
+    # @posts = Post.where(:state => 'published').order('id desc')
+    @posts = Post.list params[:page]    
   end
 
   def show

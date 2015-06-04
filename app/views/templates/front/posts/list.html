@@ -1,4 +1,4 @@
-<div id="post-list" ng-repeat="post in posts">
+<div id="post-list" ng-repeat="post in posts" ng-class="post-{{post.id}}">
   <!-- <div class="page-header"> -->
   <a class="title" ui-sref="posts.show({id:post.id})"><h1>{{post.title}}</h1></a>
 

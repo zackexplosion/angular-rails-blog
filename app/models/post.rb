@@ -28,6 +28,27 @@ class Post < ActiveRecord::Base
     self.render_markdown content
   end
 
+  def self.list paging
+
+    paging = paging.to_i
+
+    if paging <= 0 
+      paging = 1
+    end
+    
+    per_page = 5
+
+    offset = (paging - 1)  * per_page
+
+    data = self
+    .limit(per_page)
+    .offset(offset)
+    .order('id desc')
+    .where(:state => 'published')
+
+    return data
+  end
+
   protected
 
   def save_content_to_markdown
