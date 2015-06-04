@@ -32,8 +32,15 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
                 $interval.cancel(load_next_page);
             }else{
                 $scope.posts = $scope.posts.concat(res);
-                var new_posts = res.map()
-                HightlightCodes();
+                var selector = '';
+
+                for (var i = res.length - 1; i >= 0; i--) {
+                    selector += '.post-' + res[i].id + ',';
+                };
+
+                selector = selector.substring(0,selector.length-1);
+
+                HightlightCodes(selector);
             }            
         });
     }
