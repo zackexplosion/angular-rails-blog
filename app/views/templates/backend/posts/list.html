@@ -14,8 +14,12 @@
       <button class="btn btn-danger" ng-click="delete(post)">刪除</button>
     </td>
     <td>
-      <button ng-show="post.state == 'published'" class="btn btn-primary" ng-click="changeState(post)">發佈中</button>
-      <button ng-hide="post.state == 'published'" class="btn btn-warning" ng-click="changeState(post)">草稿</button>
+      <div ng-show="post.state == 'published'">
+        <button class="btn btn-primary btn-block" ng-click="changeState(post)">發佈中</button>
+      </div>
+      <div ng-hide="post.state == 'published'">
+        <button class="btn btn-warning btn-block" ng-click="changeState(post)">草稿</button>
+      </div>
     </td>
   </tr>
 </table>
