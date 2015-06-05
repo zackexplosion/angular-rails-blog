@@ -15,7 +15,23 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
 
     $scope.loading_next = false;
     var load_next_page = $interval(function(){
-        if ( window.outerHeight + document.body.scrollTop > document.body.offsetHeight && $scope.loading_next === false){
+        // var threshold = window.outerHeight + document.body.scrollTop;
+
+        // cross browser offset height
+        // http://stackoverflow.com/questions/3012668/get-the-window-height
+
+        var window_height = "innerHeight" in window 
+               ? window.innerHeight
+               : document.documentElement.offsetHeight; 
+
+        var threshold = window_height + window.pageYOffset;
+        
+        var offset_height = document.body.offsetHeight;
+
+        // console.log('threshold : ' + threshold);
+        // console.log('offset_height : ' + offset_height);
+
+        if ( threshold >= (offset_height * 0.9) && $scope.loading_next === false){
             $scope.loadNextPage(load_next_page);
         }        
     }, 1);
