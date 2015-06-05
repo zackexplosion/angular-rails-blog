@@ -34,6 +34,14 @@ angular
     Angularytics.init();
 }])
 .run(
+[         '$rootScope', 'DisqusPosts',
+function ( $rootScope,   DisqusPosts){
+    DisqusPosts.then(function(res){
+        $rootScope.relate_posts = res;
+    });
+    
+}])
+.run(
 [        '$rootScope', '$http',
 function( $rootScope,   $http){
     $rootScope.window = {
