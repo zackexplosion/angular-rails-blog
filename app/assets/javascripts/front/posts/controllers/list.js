@@ -13,11 +13,12 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
 
     LoadDisqus();
 
+    $scope.loading_next = false;
     var load_next_page = $interval(function(){
-        if ( window.outerHeight + document.body.scrollTop > document.body.offsetHeight){
+        if ( window.outerHeight + document.body.scrollTop > document.body.offsetHeight && $scope.loading_next === false){
             $scope.loadNextPage(load_next_page);
         }        
-    }, 100);
+    }, 1);
 
     $scope.$on('$destroy', function(){
         // console.log('hello');
@@ -27,7 +28,9 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
     $scope.loadNextPage = function(load_next_page){
 
         $scope.current_page++;
+        $scope.loading_next = true;
         POSTS.query({page: $scope.current_page}).$promise.then(function(res){
+            $scope.loading_next = false;
             if (res.length === 0){
                 $interval.cancel(load_next_page);
             }else{

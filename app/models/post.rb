@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
       paging = 1
     end
     
-    per_page = 5
+    per_page = 3
 
     offset = (paging - 1)  * per_page
 
