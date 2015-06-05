@@ -26,12 +26,15 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
 
         var threshold = window_height + window.pageYOffset;
         
-        var offset_height = document.body.offsetHeight;
+        var offset_height = document.body.offsetHeight * 0.9;
+
+        // minimal offset_height
+        if( offset_height < window_height) offset_height = window_height;
 
         // console.log('threshold : ' + threshold);
         // console.log('offset_height : ' + offset_height);
 
-        if ( threshold >= (offset_height * 0.9) && $scope.loading_next === false){
+        if ( threshold > offset_height && $scope.loading_next === false){
             $scope.loadNextPage(load_next_page);
         }        
     }, 1);
