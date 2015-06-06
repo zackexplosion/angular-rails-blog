@@ -20,7 +20,9 @@ $font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-se
 @import "./*";
 
 
-
+.hljs{
+  overflow-x: visible;
+}
 body{
   padding : 50px 0;
   // font-family: 'LiHei Pro','微軟正黑體' + ;
