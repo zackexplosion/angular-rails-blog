@@ -1,6 +1,12 @@
+@import "bootstrap-sprockets";
+// @import "bootstrap";
+@import "bootstrap/variables";
+
 @import "zackexplosion-ngLoading";
 @import 'codemirror';
 @import 'post/*';
+
+
 
 #new-relic{
   margin-top: 1em;

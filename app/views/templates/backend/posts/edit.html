@@ -2,8 +2,8 @@
 <input type="text" class="form-control" ng-model="post.title" />
 <hr />
 
-<div class="row">
-<div class="col-sm-10">
+<!-- <div class="row"> -->
+<div class="content">
   <ul class="nav nav-tabs">
     <li 
       ng-class="{active : isActive('editor') } "
@@ -22,10 +22,12 @@
   <ui-view></ui-view>
 </div>
 
-<div class="sidebar col-sm-2">
+<div class="sidebar">
   <button class="btn btn-block btn-default" ng-click="show_on_front()">前台顯示</button>
   <button class="btn btn-block btn-primary" ng-click="save()">儲存</button>
 </div>
+<!-- </div> -->
 </div>
-</div>
+<!-- .post-edit -->
+
 <!-- <ui-codemirror ng-model="post.content" ui-codemirror-opts="editorOptions"></ui-codemirror> -->
