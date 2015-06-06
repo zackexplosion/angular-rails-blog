@@ -1,0 +1,17 @@
+#post-edit .sidebar  {
+  padding-top: 40px;
+}
+
+@media (min-width: $screen-sm-min){
+#post-edit{
+  .content{
+    float : left;
+    width : 87%;
+  }
+  .sidebar{
+
+    float : right;
+    width : 10%;
+  }   
+}
+}
