@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require zackexplosion-ngLoading
 //= require ng-imgur.js
 //= require ui-router
 //= require codemirror
@@ -21,6 +22,7 @@
 
 angular
 .module('blog', [
+    'zackexplosion-ngLoading',
     'ngImgur',
     'ui.codemirror',
     'ui.router',
