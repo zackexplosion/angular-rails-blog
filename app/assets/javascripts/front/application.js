@@ -13,6 +13,7 @@
 
 // require highlightjs
 // require angular
+//= require zackexplosion-ngLoading
 //= require angular-resource
 //= require angular-sanitize
 //= require angularytics
@@ -22,24 +23,23 @@
 
 angular
 .module('blog', [
+    'zackexplosion-ngLoading',
     'angularytics',
     'ngSanitize',
     'ui.router',
     'ngResource'
 ])
+.config(
+[       '$locationProvider',
+function($locationProvider) {
+    // enable html5 mode
+    $locationProvider.html5Mode(true);
+}])
 .config(['AngularyticsProvider', function(AngularyticsProvider) {
     AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
 }])
 .run(['Angularytics', function(Angularytics) {
     Angularytics.init();
-}])
-.run(
-[         '$rootScope', 'DisqusPosts',
-function ( $rootScope,   DisqusPosts){
-    DisqusPosts.then(function(res){
-        $rootScope.relate_posts = res;
-    });
-    
 }])
 .run(
 [        '$rootScope', '$http',
@@ -109,22 +109,6 @@ function( $rootScope,   $http){
         
     }
 }])
-.factory('LoadingInterceptor', 
-[       '$rootScope', 
-function($rootScope){
-    $rootScope.loading = true;
-
-    return {
-        'request': function(config) {
-            $rootScope.loading = true;
-            return config;
-        },
-        'response': function(response) {
-            $rootScope.loading = false;
-            return response;
-        }
-    };
-}])
 .factory('LoadDisqus', 
 [function(){
 return function(){
@@ -139,12 +123,7 @@ return function(){
     })();
 }
 }])
-.config(
-[       '$locationProvider', '$httpProvider',
-function($locationProvider,   $httpProvider) {    
-    $locationProvider.html5Mode(true);
-    $httpProvider.interceptors.push('LoadingInterceptor');
-}])
+
 .config(
 [       '$stateProvider', '$urlRouterProvider', 'Path',
 function($stateProvider,   $urlRouterProvider,   Path) {

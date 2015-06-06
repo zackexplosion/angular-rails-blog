@@ -2,8 +2,9 @@ $font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-se
 // $font-family-serif: 'LiHei Pro','微軟正黑體';
 // $font-family-sans-serif: 'LiHei Pro','微軟正黑體';
 
-@import "../loading";
+// @import "../loading";
 
+@import "zackexplosion-ngLoading";
 
 //Import bootstrap-sprockets
 @import "bootstrap-sprockets";

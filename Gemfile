@@ -91,4 +91,5 @@ source 'https://rails-assets.org' do
 
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-angularytics'
+  gem 'rails-assets-zackexplosion-ngLoading'
 end

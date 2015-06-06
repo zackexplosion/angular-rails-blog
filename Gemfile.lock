@@ -195,6 +195,7 @@ GEM
     rails-assets-highlightjs (8.5.0)
     rails-assets-ui-router (0.2.15)
       rails-assets-angular (>= 1.0.8)
+    rails-assets-zackexplosion-ngLoading (1.1.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -291,6 +292,7 @@ DEPENDENCIES
   rails-assets-angularytics!
   rails-assets-highlightjs!
   rails-assets-ui-router!
+  rails-assets-zackexplosion-ngLoading!
   rails_12factor
   redcarpet
   sass-rails (~> 5.0)
