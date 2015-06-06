@@ -58,7 +58,7 @@ $stateProvider
 .state('posts', {
     abstract : true,
     url: '/posts',
-    template: '<ui-view></ui-view>',
+    template: '<div id="post" ui-view></div>',
     controller : ['$scope', function($scope){
         $scope.changeState = function(post){
             if(post.state === 'published'){
