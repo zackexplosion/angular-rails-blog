@@ -18,7 +18,12 @@ class Backend::PostsController < Backend::BackendController
     post = Post.find(params[:id])
 
     post.update(post_params)
+    # binding.remote_pry
+    description = post.short_plain_text_content
 
+    post = post.as_json
+    post[:description] = description
+    
     render :json => post
   end
 

@@ -44,16 +44,16 @@ class ApplicationController < ActionController::Base
           # }
           # description = Redcarpet::Markdown.new(Redcarpet::Render::StripDown, options).render @post.content
 
-          html_content = Nokogiri::HTML(@post.html_content)
+          # html_content = Nokogiri::HTML(@post.html_content)
 
-          description = ''
-          html_content.css('p').map do |p|
-            description += p.text
-          end
+          # description = ''
+          # html_content.css('p').map do |p|
+          #   description += p.text
+          # end
 
           @og[:url]         = @og[:url] + '/' + params[:path]
           @og[:title]       = @post.title + " | " + @og[:title]
-          @og[:description] = description
+          @og[:description] = @post.short_plain_text_content
 
           image_tags  = html_content.css('img')
 

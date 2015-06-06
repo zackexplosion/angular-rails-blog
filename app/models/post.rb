@@ -7,6 +7,25 @@ class Post < ActiveRecord::Base
     # self.render_markdown self.content
   end
 
+  def plain_text_content
+    html_content = Nokogiri::HTML(self.html_content)
+
+    text = ''
+    html_content.css('p').map do |p|
+      text += p.text
+    end
+
+    return text
+  end
+
+
+  def short_plain_text_content
+    return self.plain_text_content[0..200]
+  end
+  # def description 
+  #   self.content[0..50]
+  # end
+
   def short_html_content
     content = ''
     c = self.content.split("\n")
