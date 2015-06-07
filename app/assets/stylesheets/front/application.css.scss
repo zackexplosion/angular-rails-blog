@@ -31,7 +31,15 @@ body{
 pre{
   background-color : #232323;
 }
-
+@media (max-width: $screen-xs-max) { 
+  .navbar-brand{
+    padding-left : 0;
+  }  
+  .github-fork-ribbon-wrapper{
+    display: none;
+  }
+}
+/*
 @media (max-width: $screen-sm-min){
   // #livehouse{
   //   display: none;
@@ -39,8 +47,12 @@ pre{
   .navbar-brand{
     padding-left : 0;
   }  
+  .github-fork-ribbon-wrapper{
+    display: none;
+  }
 
 }
+*/
 
 .navbar-brand{
   img{
