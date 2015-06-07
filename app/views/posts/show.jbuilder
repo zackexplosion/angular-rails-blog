@@ -5,4 +5,4 @@
 
 json.(@post, :id, :title)
 json.content @post.html_content
-json.published_at @post.updated_at.strftime("%Y/%m/%d")
+json.published_at @post.published_at.strftime("%Y/%m/%d")
