@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603164437) do
+ActiveRecord::Schema.define(version: 20150607160755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150603164437) do
     t.datetime "updated_at",       null: false
     t.text     "rendered_content"
     t.string   "state"
+    t.datetime "published_at"
   end
 
   add_index "posts", ["state"], name: "index_posts_on_state", using: :btree
