@@ -15,6 +15,7 @@
 //= require ui-router
 //= require codemirror
 //= require codemirror/modes/markdown
+//= require angular-bootstrap
 //= require angular-ui-codemirror
 
 //= require_self
@@ -22,6 +23,7 @@
 
 angular
 .module('blog', [
+    'ui.bootstrap',
     'zackexplosion-ngLoading',
     'ngImgur',
     'ui.codemirror',

@@ -26,6 +26,11 @@
   <button class="btn btn-block btn-default" ng-click="show_on_front()">前台顯示</button>
   <button class="btn btn-block btn-info" ng-click="save()">儲存</button>
   <hr />
+  <input type="text" class="form-control" ng-model="dt" />
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+  </span>
+
   <div ng-show="post.state == 'published'">
     <button class="btn btn-primary btn-block" ng-click="changeState(post)">發佈中</button>
   </div>
