@@ -89,7 +89,7 @@
       </div>
 
       <h3 data-ng-click="changeLiveStatus()">現場直播</h3>
-      <hr />
+      <hr data-ng-show="is_streaming()" />
 <!--       <div data-ng-hide="is_streaming()" class="offline">
         <h4>實況主正在上班</h4>
       </div> -->
@@ -98,14 +98,28 @@
       
     </div>
     <!-- #livehouse -->
-
-    
-
-<!--     <h3>相關內容</h3>
     <hr />
-    <div data-ui-view="sidebar_posts"></div> -->
+    <h3>相關內容</h3>
+    
+    <div data-ui-view="sidebar_posts">這功能有點懶得寫...</div>
+    
+<!-- <div class="btn-group"> -->
+  <hr />
+  <h3>保持聯繫</h3>
+  
+  <a class="btn btn-primary" target="_blank" href="https://github.com/cstony0917"><i class="fa fa-github-square fa-2x"></i></a>
+  <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/tony.hsieh2"><i class="fa fa-facebook-square fa-2x"></i></a>
+  <a class="btn btn-primary" target="_blank" href="https://www.youtube.com/user/cstony0917"><i class="fa fa-youtube-square fa-2x"></i></a>
+  <a class="btn btn-primary" target="_blank" href="https://plus.google.com/u/0/+ZackExplosion/posts"><i class="fa fa-google-plus-square fa-2x"></i></a>
+  <a class="btn btn-primary" href="mailto:cstony0917@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
 
-    {{relate_posts | json}}    
+
+
+<!-- </div> -->
+
+
+
+    <!-- {{relate_posts | json}}     -->
 
     </div>
     <!-- #sidebar-wrapper -->

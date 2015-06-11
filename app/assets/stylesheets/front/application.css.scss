@@ -19,6 +19,8 @@ $font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-se
 @import "bootstrap/variables";
 @import "./*";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .hljs{
   overflow-x: visible;

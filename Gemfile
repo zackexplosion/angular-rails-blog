@@ -83,6 +83,8 @@ gem 'devise', '3.4.1'
 # gem 'gist'
 gem 'nokogiri'
 
+gem 'font-awesome-sass'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-angularjs', '1.3.0'
   gem 'rails-assets-angular-resource', '1.3.0'

@@ -106,6 +106,8 @@ GEM
     eventmachine (1.0.7)
     execjs (2.5.2)
     ffi (1.9.8)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -284,6 +286,7 @@ DEPENDENCIES
   codemirror-rails
   compass-rails!
   devise (= 3.4.1)
+  font-awesome-sass
   guard-livereload (~> 2.4)
   jbuilder (~> 2.0)
   meta_request
