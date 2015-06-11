@@ -1,10 +1,10 @@
 angular
 .module('blog')
 .controller('PostListCrtl', 
-[        '$interval', 'SetTitle', '$scope', 'POSTS', 'HightlightCodes', 'LoadDisqus',
-function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDisqus){
-    $scope.current_page = 1;
-    $scope.posts = POSTS.query({page: $scope.current_page});
+[        '$rootScope', 'SetTitle', '$scope', 'POSTS', 'HightlightCodes', 'LoadDisqus',
+function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDisqus){
+    
+    // $scope.posts = POSTS.query({page: $scope.current_page});
 
 
     SetTitle();  
@@ -13,45 +13,25 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
 
     LoadDisqus();
 
-    $scope.loading_next = false;
-    var load_next_page = $interval(function(){
-        // var threshold = window.outerHeight + document.body.scrollTop;
+    
 
-        // cross browser offset height
-        // http://stackoverflow.com/questions/3012668/get-the-window-height
+    // $scope.$on('$destroy', function(){
+    //     // console.log('hello');
+    //     $interval.cancel(load_next_page);
+    // });
 
-        var window_height = "innerHeight" in window 
-               ? window.innerHeight
-               : document.documentElement.offsetHeight; 
+    $scope.loading_next = true;
+    $scope.current_page = 1;
+    $scope.posts        = [];
 
-        var threshold = window_height + window.pageYOffset;
-        
-        var offset_height = document.body.offsetHeight * 0.9;
-
-        // minimal offset_height
-        if( offset_height < window_height) offset_height = window_height;
-
-        // console.log('threshold : ' + threshold);
-        // console.log('offset_height : ' + offset_height);
-
-        if ( threshold > offset_height && $scope.loading_next === false){
-            $scope.loadNextPage(load_next_page);
-        }        
-    }, 1);
-
-    $scope.$on('$destroy', function(){
-        // console.log('hello');
-        $interval.cancel(load_next_page);
-    });
-
-    $scope.loadNextPage = function(load_next_page){
-
+    ($scope.loadNextPage = function(load_next_page){
         $scope.current_page++;
         $scope.loading_next = true;
-        POSTS.query({page: $scope.current_page}).$promise.then(function(res){
-            $scope.loading_next = false;
+
+        var promise = POSTS.query({page: $scope.current_page}).$promise;
+        promise.then(function(res){            
             if (res.length === 0){
-                $interval.cancel(load_next_page);
+                $scope.loading_next = false;
             }else{
                 $scope.posts = $scope.posts.concat(res);
                 var selector = '';
@@ -65,5 +45,13 @@ function( $interval,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDis
                 HightlightCodes(selector);
             }            
         });
-    }
+
+        return promise;
+    })();
+
+    $rootScope.$on('scrollToBottom', function(){      
+      if ( $rootScope.zackexplosion_loading  || $scope.loading_next === false) return;
+
+      $scope.loadNextPage();
+    });
 }])

@@ -93,6 +93,6 @@ source 'https://rails-assets.org' do
 
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-angularytics'
-  gem 'rails-assets-zackexplosion-ngLoading'
+  gem 'rails-assets-zackexplosion-ng-infinite-scroll'
 
 end

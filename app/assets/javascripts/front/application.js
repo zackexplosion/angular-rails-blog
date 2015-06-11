@@ -14,6 +14,8 @@
 // require highlightjs
 // require angular
 //= require zackexplosion-ngLoading
+//= require zackexplosion-ng-infinite-scroll
+
 //= require angular-resource
 //= require angular-sanitize
 //= require angularytics
@@ -24,6 +26,7 @@
 angular
 .module('blog', [
     'zackexplosion-ngLoading',
+    'zackexplosion-ng-infinite-scroll',
     'angularytics',
     'ngSanitize',
     'ui.router',
