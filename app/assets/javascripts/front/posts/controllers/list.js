@@ -24,12 +24,13 @@ function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDi
     $scope.current_page = 1;
     $scope.posts        = [];
 
-    ($scope.loadNextPage = function(load_next_page){
-        $scope.current_page++;
+    ($scope.loadNextPage = function(load_next_page){        
         $scope.loading_next = true;
 
         var promise = POSTS.query({page: $scope.current_page}).$promise;
         promise.then(function(res){            
+            $scope.current_page++;
+            
             if (res.length === 0){
                 $scope.loading_next = false;
             }else{
@@ -43,7 +44,7 @@ function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDi
                 selector = selector.substring(0,selector.length-1);
 
                 HightlightCodes(selector);
-            }            
+            }
         });
 
         return promise;
