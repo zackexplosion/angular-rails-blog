@@ -3,7 +3,11 @@ json.array! @posts do |p|
   json.id p.id
   json.title p.title
   json.content p.short_html_content
-  json.published_at p.updated_at.strftime("%Y/%m/%d")
+  if p.published_at
+    json.published_at p.published_at.strftime("%Y/%m/%d")
+  else
+    json.published_at p.updated_at.strftime("%Y/%m/%d")
+  end
  
   json.images  images(p)  
 end
