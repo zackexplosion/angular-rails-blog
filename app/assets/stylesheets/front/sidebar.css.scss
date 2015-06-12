@@ -8,13 +8,15 @@
 @media (min-width: $screen-md-min){
 #sidebar{
   float  : right;
-  height : 100vh;  
+  height : 100vh;
+  width  : 30%;
 }
 #sidebar-wrapper{
   // overflow-y: scroll;
   position: fixed;
   // width: 205px;
-  width: 283px;
+  // width: 283px;
+  width: 291px;
   height: calc(100vh - 90px);
   // @include scrollbars(.5em, #FF0000);
 
@@ -26,7 +28,6 @@
 
 @media (min-width: $screen-lg-min){
 #sidebar-wrapper{
-  // width: 255px;
-  width: 350px;
+  width: 351px;
 }
 }
