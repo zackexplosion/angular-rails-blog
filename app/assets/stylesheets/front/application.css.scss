@@ -77,7 +77,10 @@ pre{
   }
 }
 
-div#social{
-  position : absolute;
-  bottom   : 0;
+@media (min-width: $screen-md-min) { 
+  div#social{
+    position : absolute;
+    bottom   : 0;
+  }
 }
+
