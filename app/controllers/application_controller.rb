@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
   protect_from_forgery with: :exception
 
   before_action :setup_og
+  before_action :setup_cache
+
+  def setup_cache
+    expires_in 20.minutes
+  end
 
   def index
     render :template => 'layouts/application.html.erb', :layout => false
