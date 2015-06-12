@@ -16,7 +16,7 @@
   position: fixed;
   // width: 205px;
   // width: 283px;
-  width: 291px;
+  width: 261px;
   height: calc(100vh - 90px);
   // @include scrollbars(.5em, #FF0000);
 
@@ -28,6 +28,6 @@
 
 @media (min-width: $screen-lg-min){
 #sidebar-wrapper{
-  width: 351px;
+  width: 315px;
 }
 }
