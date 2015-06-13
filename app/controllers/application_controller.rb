@@ -58,7 +58,8 @@ class ApplicationController < ActionController::Base
           end
 
           @og[:url]         = @og[:url] + '/' + params[:path]
-          @og[:title]       = @post.title + " | " + @og[:title]
+          # @og[:title]       = @post.title + " | " + @og[:title]
+          @og[:title]       = @post.title
           @og[:description] = description
 
           image_tags  = html_content.css('img')
