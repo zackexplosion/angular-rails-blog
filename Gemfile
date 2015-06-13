@@ -92,7 +92,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-bootstrap'
   gem 'rails-assets-ui-router'
   gem 'rails-assets-angular-ui-codemirror'
-
+  gem 'rails-assets-momentjs'
+  gem 'rails-assets-eonasdan-bootstrap-datetimepicker'
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-angularytics'
   gem 'rails-assets-zackexplosion-ng-infinite-scroll'

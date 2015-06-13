@@ -17,6 +17,8 @@
 //= require codemirror/modes/markdown
 //= require angular-bootstrap
 //= require angular-ui-codemirror
+//= require momentjs
+//= require eonasdan-bootstrap-datetimepicker
 
 //= require_self
 //= require_tree .

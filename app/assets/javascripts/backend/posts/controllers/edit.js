@@ -25,6 +25,18 @@ function( $scope,    POST,   $state,   imgur,   $state,   $document){
         window.open('/p/' + POST.id);
     }   
 
+    $('.published_at input').datetimepicker({
+        defaultDate: $scope.post.published_at,
+        format : 'YYYY-MM-DDTHH:mm:ss.sssZ',
+        collapse: false
+    }).on("dp.change", function (e) {
+        var date = $(this).val();
+        console.log(date);
+        $scope.$apply(function(){
+            $scope.post.published_at = date;
+        });
+    });
+
     // $scope.is_running_combo = false;
 
     $scope.is_cmd_press = false;   
