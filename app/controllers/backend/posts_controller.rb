@@ -5,7 +5,7 @@ class Backend::PostsController < Backend::BackendController
 
 
   def index
-    @posts = Post.all.order('id desc')
+    @posts = Post.all.order('published_at desc')
   end
 
   def show

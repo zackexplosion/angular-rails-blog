@@ -62,7 +62,7 @@ class Post < ActiveRecord::Base
     data = self
     .limit(per_page)
     .offset(offset)
-    .order('id desc')
+    .order('published_at desc')
     .where(:state => 'published')
 
     return data
