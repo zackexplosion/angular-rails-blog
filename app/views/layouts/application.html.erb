@@ -21,12 +21,10 @@
   <meta property="og:site_name" content="ZackExplosion"/>
 
   <meta name="description" content="<%= @og[:description] %>">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
   <%= stylesheet_link_tag 'front/application', media: 'all' %>
-  <%= javascript_include_tag 'front/application' %>
-  
+ 
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -133,6 +131,9 @@
   
   <%= yield %>
 </div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+<%= javascript_include_tag 'front/application' %>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
