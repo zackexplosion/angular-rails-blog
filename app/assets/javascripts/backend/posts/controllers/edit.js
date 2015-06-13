@@ -23,15 +23,16 @@ function( $scope,    POST,   $state,   imgur,   $state,   $document){
 
     $scope.show_on_front = function () {
         window.open('/p/' + POST.id);
-    }   
-
-    $('.published_at input').datetimepicker({
+    }
+    var a = $scope.post.published_at;
+    // debugger;
+    $('.published_at input').datetimepicker({        
+        format : 'YYYY/MM/DD',
         defaultDate: $scope.post.published_at,
-        format : 'YYYY-MM-DD',
         collapse: false
     }).on("dp.change", function (e) {
         var date = $(this).val();
-        console.log(date);
+        // console.log(date);
         $scope.$apply(function(){
             $scope.post.published_at = date;
         });
