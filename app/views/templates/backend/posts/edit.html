@@ -24,10 +24,9 @@
 
 <div class="sidebar">
   <button class="btn btn-block btn-default" ng-click="show_on_front()">前台顯示</button>
-  <button class="btn btn-block btn-info" ng-click="save()">儲存</button>
   <hr />
   <div class="published_at">
-    <h5>發佈日期</h5>
+    <h3>發佈日期</h3>
     <div class="form-group">
         <div class="input-group date">
             <input type="text" class="form-control" ng-model="post.published_at" />
@@ -38,12 +37,21 @@
     </div>
   </div>
 
-  <div ng-show="post.state == 'published'">
-    <button class="btn btn-primary btn-block" ng-click="changeState(post)">發佈中</button>
+  <hr />
+  <div>
+    
+    <!-- <h5>文章狀態</h5> -->
+    <div ng-show="post.state == 'published'">
+      <button class="btn btn-primary btn-block" ng-click="changeState(post)">發佈中</button>
+    </div>
+    <div ng-hide="post.state == 'published'">
+      <button class="btn btn-warning btn-block" ng-click="changeState(post)">草稿</button>
+    </div>
   </div>
-  <div ng-hide="post.state == 'published'">
-    <button class="btn btn-warning btn-block" ng-click="changeState(post)">草稿</button>
-  </div>
+
+  <hr />
+
+  <button class="btn btn-block btn-info" ng-click="save()">儲存</button>
 </div>
 <!-- </div> -->
 </div>

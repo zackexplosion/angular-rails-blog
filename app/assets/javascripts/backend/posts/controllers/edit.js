@@ -27,7 +27,7 @@ function( $scope,    POST,   $state,   imgur,   $state,   $document){
 
     $('.published_at input').datetimepicker({
         defaultDate: $scope.post.published_at,
-        format : 'YYYY-MM-DDTHH:mm:ss.sssZ',
+        format : 'YYYY-MM-DD',
         collapse: false
     }).on("dp.change", function (e) {
         var date = $(this).val();
