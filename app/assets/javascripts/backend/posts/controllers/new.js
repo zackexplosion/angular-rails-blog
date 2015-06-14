@@ -7,6 +7,7 @@ function( POSTS,   $state){
     post.title = 'hello';
     post.content = 'hello world';
     post.state = 'draft';
+    post.published_at = new Date();
     post.$save().then(function(res){
         $state.go('posts.edit.editor',{id : res.id});
     });
