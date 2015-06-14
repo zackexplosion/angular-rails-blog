@@ -1,8 +1,13 @@
 #!/bin/bash
 
-heroku run sh ./heroku_backupdatabase | sed '1d' | base64 --decode >  db/seeds.rb
+# heroku run sh ./heroku_backupdatabase | sed '1d' | base64 --decode >  db/seeds.rb
 
-git add .
-git commit -m 'database backup'
+# git add .
+# git commit -m 'database backup'
 
-powder down && rake db:reset db:seed:user && powder up
+# powder down && rake db:reset db:seed:user && powder up
+
+
+heroku pg:backups capture
+curl -o latest.dump  `heroku pg:backups public-url`
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U zack -d zack_blog latest.dump
