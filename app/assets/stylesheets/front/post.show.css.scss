@@ -9,7 +9,7 @@
 
   #disqus_thread{
     margin-top: 2em;
-  }  
+  }
 }
 
 article{
@@ -19,7 +19,7 @@ article{
   p{
     letter-spacing : 2px;
     margin-top     : 1em;
-    margin-bottom  : 5px;
+    margin-bottom  : 1em;
     word-wrap      : break-word;
     font-size      : 1.1em;
     line-height    : 150%;
@@ -30,7 +30,8 @@ article{
     box-sizing : border-box;
     max-width  : 100%;
     display    : block;
-    margin     : 1em auto 2em auto;
+    margin     : 0 auto;
+    margin-top : 0.5em;
   }
   pre {
     overflow: auto;
