@@ -50,9 +50,12 @@ function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDi
         return promise;
     })();
 
-    $rootScope.$on('scrollToBottom', function(){      
+    var stopCallNextPage = $rootScope.$on('scrollToBottom', function(){
       if ( $rootScope.zackexplosion_loading  || $scope.loading_next === false) return;
-
       $scope.loadNextPage();
+    });
+
+    $scope.$on('$destroy' , function(){
+        stopCallNextPage();
     });
 }])
