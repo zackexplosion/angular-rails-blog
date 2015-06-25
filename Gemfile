@@ -67,7 +67,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'meta_request'
   gem 'pry-remote'
+  gem 'rspec-rails'
 end
+
+gem 'simplecov', :require => false, :group => :test
 
   # gem 'meta_request'
 
