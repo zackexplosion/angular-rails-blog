@@ -1,19 +1,19 @@
 angular
 .module('blog')
-.controller('PostListCrtl', 
+.controller('PostListCrtl',
 [        '$rootScope', 'SetTitle', '$scope', 'POSTS', 'HightlightCodes', 'LoadDisqus',
 function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDisqus){
-    
+
     // $scope.posts = POSTS.query({page: $scope.current_page});
 
 
-    SetTitle();  
+    SetTitle();
 
     HightlightCodes();
 
     LoadDisqus();
 
-    
+
 
     // $scope.$on('$destroy', function(){
     //     // console.log('hello');
@@ -24,13 +24,13 @@ function ($rootScope,   SetTitle,   $scope,   POSTS,   HightlightCodes,   LoadDi
     $scope.current_page = 1;
     $scope.posts        = [];
 
-    ($scope.loadNextPage = function(load_next_page){        
+    ($scope.loadNextPage = function(load_next_page){
         $scope.loading_next = true;
 
         var promise = POSTS.query({page: $scope.current_page}).$promise;
-        promise.then(function(res){            
+        promise.then(function(res){
             $scope.current_page++;
-            
+
             if (res.length === 0){
                 $scope.loading_next = false;
             }else{
