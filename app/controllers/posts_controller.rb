@@ -6,11 +6,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
+    @post = Post.find_by_slug(params[:id])
 
     # if @post.state == 'draft'
     #   render :text => ''
-    # end    
+    # end
   end
 
 end

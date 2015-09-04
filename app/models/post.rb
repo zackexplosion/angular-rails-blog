@@ -1,6 +1,23 @@
 class Post < ActiveRecord::Base
   before_save :save_content_to_markdown
 
+
+  @@hashid = Hashids.new("zackexplosion fucking awsome salt" , 4)
+
+  def self.hashid
+    @@hashid
+  end
+
+  def self.find_by_slug slug
+    id = @@hashid.decode(slug)[0]
+    self.find(id)
+  end
+
+  def slug
+    @@hashid.encode(self.id)
+  end
+
+
   def html_content
     self.render_markdown self.content
     # self.render_content

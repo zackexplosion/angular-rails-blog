@@ -1,6 +1,6 @@
 json.array! @posts do |p|
   # json.merge! p.attributes.except('rendered_content')
-  json.id p.id
+  json.id p.slug
   json.title p.title
   json.content p.short_html_content
   if p.published_at
@@ -8,6 +8,6 @@ json.array! @posts do |p|
   else
     json.published_at p.updated_at.strftime("%Y/%m/%d")
   end
- 
-  json.images  images(p)  
+
+  json.images  images(p)
 end

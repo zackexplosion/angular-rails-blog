@@ -20,7 +20,8 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-
+# for post id
+gem 'hashids'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

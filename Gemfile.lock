@@ -147,6 +147,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashids (1.0.2)
     hike (1.2.3)
     hitimes (1.2.2)
     http_parser.rb (0.6.0)
@@ -345,6 +346,7 @@ DEPENDENCIES
   font-awesome-sass
   guard-livereload (~> 2.4)
   guard-rspec
+  hashids
   jbuilder (~> 2.0)
   meta_request
   mysql2
