@@ -7,7 +7,7 @@
   <meta name="author" content="Zack" />
   <base href="/" />
   <%= favicon_link_tag 'favicon.png'%>
-  
+
   <meta property="og:locale" content="zh_TW"/>
 
   <% @og.each do |k,v| %>
@@ -22,9 +22,8 @@
 
   <meta name="description" content="<%= @og[:description] %>">
 
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
   <%= stylesheet_link_tag 'front/application', media: 'all' %>
- 
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -71,7 +70,7 @@
 </nav>
 
 <div class="container">
-  <div class="row">  
+  <div class="row">
   <div class="col-md-8" data-ui-view></div>
   <div id="sidebar" class="col-md-3">
     <div id="sidebar-wrapper">
@@ -93,19 +92,19 @@
       </div> -->
       <div data-ng-show="is_streaming()" class="video-wrapper"></div>
       <div data-ng-show="is_streaming()" class="chat-wrapper"></div>
-      
+
     </div>
     <!-- #livehouse -->
     <hr />
     <h3>相關內容</h3>
-    
+
     <div data-ui-view="sidebar_posts">這功能有點懶得寫...</div>
-    
+
 <!-- <div class="btn-group"> -->
   <hr />
   <div id="social">
     <h3>保持聯繫</h3>
-    
+
     <a class="btn btn-primary" target="_blank" href="https://github.com/cstony0917"><i class="fa fa-github-square fa-2x"></i></a>
     <a class="btn btn-primary" target="_blank" href="https://www.facebook.com/tony.hsieh2"><i class="fa fa-facebook-square fa-2x"></i></a>
     <a class="btn btn-primary" target="_blank" href="https://www.youtube.com/user/cstony0917"><i class="fa fa-youtube-square fa-2x"></i></a>
@@ -124,11 +123,11 @@
     <!-- #sidebar-wrapper -->
   </div>
   <!-- #sidebar -->
-  
+
   </div>
   <!-- .row -->
 
-  
+
   <%= yield %>
 </div>
 <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script> -->

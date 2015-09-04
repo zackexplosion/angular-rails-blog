@@ -106,5 +106,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-highlightjs'
   gem 'rails-assets-angularytics'
   gem 'rails-assets-zackexplosion-ng-infinite-scroll'
-
+  gem 'rails-assets-github-fork-ribbon-css'
 end
