@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def index
     render :template => 'layouts/application.html.erb', :layout => false
   end
-  
+
   def template
     t = params[:t]
 
@@ -34,10 +34,10 @@ class ApplicationController < ActionController::Base
 
 
     if robot?
-      og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)      
+      og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
 
       if params[:path]
-        p = params[:path].split('/').last.to_i      
+        p = params[:path].split('/').last.to_i
         if p != 0
           require 'redcarpet/render_strip'
           @post       = Post.find(p)
@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
   end
 
   def robot?
-    m = false
+    m = true
 
     unless request.env["HTTP_USER_AGENT"] == nil
       m = request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
@@ -90,7 +90,7 @@ class ApplicationController < ActionController::Base
 
   def sitemap
     @base = request.protocol + request.host
-    
+
     @posts = Post.all
 
     render 'layouts/sitemap.builder'
