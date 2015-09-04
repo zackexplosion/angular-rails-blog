@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   def short_plain_text_content
     return self.plain_text_content[0..200]
   end
-  # def description 
+  # def description
   #   self.content[0..50]
   # end
 
@@ -51,10 +51,10 @@ class Post < ActiveRecord::Base
 
     paging = paging.to_i
 
-    if paging <= 0 
+    if paging <= 0
       paging = 1
     end
-    
+
     per_page = 3
 
     offset = (paging - 1)  * per_page
@@ -89,7 +89,7 @@ class Post < ActiveRecord::Base
     # .new(TargetBlankRenderer, fenced_code_blocks: true)
     # .render(content)
 
-    
+
   end
 end
 

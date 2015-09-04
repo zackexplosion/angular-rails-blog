@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-// require highlightjs
+//= require highlightjs
 // require angular
 //= require zackexplosion-ngLoading
 //= require zackexplosion-ng-infinite-scroll
