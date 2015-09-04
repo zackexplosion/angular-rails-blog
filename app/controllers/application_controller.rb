@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_og
-
     @og = {
       :url         => request.protocol + request.host,
       :title       => "Zack's Blog",
@@ -37,10 +36,12 @@ class ApplicationController < ActionController::Base
       og_img = ActionController::Base.helpers.asset_path("favicon.png", type: :image)
 
       if params[:path]
-        p = params[:path].split('/').last.to_i
+        p = params[:path].split('/').last.to_s
+
         if p != 0
           require 'redcarpet/render_strip'
-          @post       = Post.find(p)
+          # @post       = Post.find(p)
+          @post       = Post.find_by_slug(p)
 
 
           # options = {
@@ -84,6 +85,7 @@ class ApplicationController < ActionController::Base
     # logger.info '!!!!!!!!!!!!!!!'
     # logger.info m
     # logger.info '!!!!!!!!!!!!!!!'
+
     return m
     # return true
   end
