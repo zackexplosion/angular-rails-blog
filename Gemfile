@@ -6,16 +6,17 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-gem 'pg', '0.18.1'
+# gem 'pg', '0.18.1'
+gem 'mysql2'
 
 gem 'seed_dump'
 
 
 group :production do
-  gem 'rails_12factor'
-  # for monitor
-  # https://devcenter.heroku.com/articles/newrelic#ruby-installation-and-configuration
-  gem 'unicorn'
+  # gem 'rails_12factor'
+  # # for monitor
+  # # https://devcenter.heroku.com/articles/newrelic#ruby-installation-and-configuration
+  # gem 'unicorn'
   gem 'newrelic_rpm'
 end
 
@@ -50,9 +51,6 @@ gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -70,6 +68,11 @@ group :development, :test do
   gem 'meta_request'
   gem 'pry-remote'
   gem 'rspec-rails'
+
+  # Use Capistrano for deployment
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv'
 end
 
 gem 'simplecov', :require => false, :group => :test

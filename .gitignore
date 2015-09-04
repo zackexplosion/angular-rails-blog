@@ -20,3 +20,7 @@ database.yml
 user.rb
 latest.dump
 coverage
+config/deploy.rb
+config/deploy/production.rb
+config/deploy/staging.rb
+Capfile

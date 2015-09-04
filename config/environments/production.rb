@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # config.action_controller.asset_host = '//cstony0917.github.io/zackexplosion/'
 
-  config.action_controller.asset_host = ENV['ASSETS_HOSTING_DOMAIN']
+  # config.action_controller.asset_host = ENV['ASSETS_HOSTING_DOMAIN']
 
   
 end
