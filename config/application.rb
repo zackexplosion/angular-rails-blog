@@ -22,5 +22,14 @@ module Blog
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # get env variable from .powenv
+    if File.exist?(".powenv")
+      IO.foreach('.powenv') do |line|
+        next if !line.include?('export') || line.blank?
+        key, value = line.gsub('export','').split('=',2)
+        ENV[key.strip] = value.delete('"\'').strip
+      end
+    end
   end
 end
