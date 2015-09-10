@@ -6,7 +6,7 @@
 
   @posts.each do |p|
     xml.url do
-      xml.loc @base + '/p/' + p.id.to_s
+      xml.loc @base + '/p/' + p.slug
     end
   end
 
