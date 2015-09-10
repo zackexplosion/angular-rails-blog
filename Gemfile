@@ -94,6 +94,9 @@ gem 'nokogiri'
 
 gem 'font-awesome-sass'
 
+# sync assets to google cloud
+gem 'asset_sync'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-angularjs', '1.3.0'
   gem 'rails-assets-angular-resource', '1.3.0'
