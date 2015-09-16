@@ -23,6 +23,10 @@ $font-family-base: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-se
 @import "font-awesome";
 @import "github-fork-ribbon-css";
 
+h1{
+  word-wrap: break-word;
+}
+
 .hljs{
   overflow-x: visible;
 }
