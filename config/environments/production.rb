@@ -81,6 +81,8 @@ Rails.application.configure do
 
   # config.action_controller.asset_host = ENV['ASSETS_HOSTING_DOMAIN']
 
+  ASSETS_DOMAIN = ENV['FOG_DIRECTORY']
+
   #config/environments/production.rb
-  config.action_controller.asset_host = "//zackexplosion.storage.googleapis.com"
+  config.action_controller.asset_host = "//{#ASSETS_DOMAIN}.storage.googleapis.com"
 end
