@@ -2,7 +2,7 @@
     {
       "origin": ["http://zackexplosion.com"],
       "responseHeader": ["Content-Type"],
-      "method": ["GET"],
+      "method": ["GET", "HEAD", "DELETE"],
       "maxAgeSeconds": 3600
     }
 ]
