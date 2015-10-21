@@ -16,9 +16,15 @@ class ApplicationController < ActionController::Base
   end
 
   def template
-    t = params[:t]
 
-    render :template => "templates/#{t}", :layout => false
+    t = /[a-zA-Z\/]*\.{1}[a-z]*/.match(params[:t]).to_s
+
+    begin
+      render :template => "templates/#{t}", :layout => false
+    rescue Exception => e
+      raise ActionController::RoutingError.new('Not Found')
+    end
+
   end
 
   def setup_og
